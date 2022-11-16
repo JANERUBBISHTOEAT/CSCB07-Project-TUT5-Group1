@@ -1,0 +1,14 @@
+Team members:
+    Zheyuan Wei (Scrum Master)
+    Qihui Li
+    Xinzi Huang
+    Zhiyu Pan
+    Yibai Wang 
+    Xukai Zheng
+
+Primary Method of communication: Wechat
+
+Scheduled times for all daily standup meetings:
+
+Version Control using GitHub: https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1.git
+
