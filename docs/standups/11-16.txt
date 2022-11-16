@@ -57,12 +57,13 @@ Any impediments or stumbling blocks?
 Name: Zheyuan Wei
 
 What have you done since yesterday?
-	- <What you have done>
+    - Assessed the tasks and assigned them to team members
+    - Created the team Jira page
+    - Created a empty project on GitHub
+	- Updated readme file
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Database for students
 
 Any impediments or stumbling blocks?
 	- None
