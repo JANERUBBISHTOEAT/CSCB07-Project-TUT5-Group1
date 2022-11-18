@@ -1,12 +1,10 @@
 Name: Qihui Li
 
 What have you done since yesterday?
-	- <What you have done>
+	- Set up for following work
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- "View all courses" function
 
 Any impediments or stumbling blocks?
 	- None
