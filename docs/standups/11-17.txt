@@ -1,0 +1,60 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- An attempt to program "View All Courses" function.
+
+What are you planning on doing today?
+	- Try "View All Courses" function combined with established Firebase database.
+
+Any impediments or stumbling blocks?
+	- Database is not ready yet.
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Roughly designed the UI of main page and login page on Figma.
+
+What are you planning on doing today?
+	- Try "Login" UI on Android.
+
+Any impediments or stumbling blocks?
+	- Database is not ready yet.
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Roughly designed the UI of main page and login page on Figma.
+
+What are you planning on doing today?
+	- Try "Sign up" UI on Android.
+
+Any impediments or stumbling blocks?
+	- Database is not ready yet.
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Established Firebase database for the courses.
+	- Connect the database to the Android app.
+
+What are you planning on doing today?
+	- Complete the Firebase database for the courses.
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Established Firebase database for the students.
+	- Connect the database to the Android app.
+
+What are you planning on doing today?
+	- Complete the Firebase database for the students.
+
+Any impediments or stumbling blocks?
+	- None
