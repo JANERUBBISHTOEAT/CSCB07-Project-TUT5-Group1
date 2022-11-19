@@ -9,6 +9,10 @@ Team members:
 Primary Method of communication: Wechat
 
 Scheduled times for all daily standup meetings:
+    Mondays 22:00
+    Tusedays 14:00
+    Wednsdays 15:00
+    Thursdays to Sundays 21:00
 
 Version Control using GitHub: https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1.git
 
