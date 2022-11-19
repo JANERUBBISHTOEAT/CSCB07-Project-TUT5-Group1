@@ -25,12 +25,10 @@ Any impediments or stumbling blocks?
 Name: Zhiyu Pan
 
 What have you done since yesterday?
-	- <What you have done>
+	- None (the project just started)
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Design the UI of the main page for our app.
 
 Any impediments or stumbling blocks?
 	- None
