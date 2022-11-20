@@ -1,0 +1,58 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Studied how to import data from firebase.
+
+What are you planning on doing today?
+	- Keep trying "View All Courses" function.
+
+Any impediments or stumbling blocks?
+	- CSCB36 Term Test 2 is coming up. I need to study for it.
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Try to write the frontend for the home page but fail to import the images.
+
+What are you planning on doing today?
+	- Finish the ui tomorrow.
+
+Any impediments or stumbling blocks?
+	- Import the images to the frontend.
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Study others' code.
+
+What are you planning on doing today?
+	- Try "Sign up" UI on Android.
+
+Any impediments or stumbling blocks?
+	- Study for other courses.
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Slight improvement on the database.
+
+What are you planning on doing today?
+	- Improve the database and help others.
+
+Any impediments or stumbling blocks?
+	- CSCB36 Term Test 2 is coming up. I need to study for it.
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Slight improvement on the database.
+
+What are you planning on doing today?
+	- Develop a mock Sign Up function to test the database.
+
+Any impediments or stumbling blocks?
+	- CSCB36 Term Test 2 is coming up. I need to study for it.
