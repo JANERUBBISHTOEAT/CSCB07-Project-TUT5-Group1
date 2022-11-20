@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screen_background">#954764</color>
     <color name="main_color">#B85F80</color>
+    <color name="pink">#B85F80</color>
+    <color name="light_pink">#95F6D7E3</color>
 </resources>

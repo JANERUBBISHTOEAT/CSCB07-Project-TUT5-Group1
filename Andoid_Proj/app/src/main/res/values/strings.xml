@@ -6,4 +6,16 @@
 
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="username">username</string>
+    <string name="password">Password</string>
+    <string name="please_select_your_role">please select your role</string>
+    <string name="sing_up">Signing up</string>
+    <string name="Username">Username</string>
+    <string name="select_your_role">Select Your Role</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="login">Login</string>
+    <string name="sign_up">sign up</string>
+
+
 </resources>
