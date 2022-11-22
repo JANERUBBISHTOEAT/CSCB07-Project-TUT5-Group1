@@ -2,7 +2,7 @@
     <string name="app_name">CSCB07_TUT5_GROUP1</string>
     <string name="title_home">Planner</string>
     <string name="app_intro">Easy organizer of your academic life</string>
-    <string name="start_button">Let's Start!       →</string>
+    <string name="start_button">Let\'s Start!       →</string>
 
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>

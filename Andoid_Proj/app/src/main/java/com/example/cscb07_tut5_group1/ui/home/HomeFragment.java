@@ -67,7 +67,7 @@ public class HomeFragment extends Fragment {
 
         System.out.println(ref.child("test").getKey());
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.appName;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
