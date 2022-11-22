@@ -48,4 +48,15 @@
         app:layout_constraintTop_toBottomOf="@+id/appIntro" />
 
 
+    <Button
+        android:id="@+id/goto_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/goto_test_button"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@+id/start_button"
+        app:layout_constraintTop_toBottomOf="@+id/start_button" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

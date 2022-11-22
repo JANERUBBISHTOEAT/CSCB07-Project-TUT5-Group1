@@ -9,6 +9,7 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="login">Log in</string>
     <string name="sign_up">sign up</string>
+    <string name="goto_test_button">Goto Test</string>
 
     <string name="log_in">Logging in</string>
     <string name="dont_have_account">Don\'t have an account?</string>
