@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink"
-    tools:context=".Home_Activity">
+    tools:context=".Test_Activity">
 
     <TextView
         android:id="@+id/appName"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:fontFamily="sans-serif"
-        android:text="@string/title_home"
+        android:text="Test_Page"
         android:textColor="@color/white"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -22,16 +22,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/appIntro"
+    <Button
+        android:id="@+id/test_database_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_intro"
-        android:textColor="@color/white"
+        android:text="@string/test_database_button"
+        android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="@+id/appName"
         app:layout_constraintTop_toBottomOf="@+id/appName" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

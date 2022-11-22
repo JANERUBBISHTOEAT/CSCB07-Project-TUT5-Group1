@@ -17,6 +17,7 @@ public class Home_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
 
+        // Goto Start Page
         Button start_btn = (Button)findViewById(R.id.start_button);
 
         start_btn.setOnClickListener(new View.OnClickListener() {
@@ -28,10 +29,10 @@ public class Home_Activity extends AppCompatActivity {
         });
 
 
-        // Goto Test Activity
-        Button goto_test_btn = (Button)findViewById(R.id.start_button);
+        // Goto Test Page
+        Button goto_test_btn = (Button)findViewById(R.id.goto_test_button);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        goto_test_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("Home_Activity", "----onClick: Goto Test Activity----");
