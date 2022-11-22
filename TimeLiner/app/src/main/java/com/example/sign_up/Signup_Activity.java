@@ -1,16 +1,28 @@
 package com.example.sign_up;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class Signup_Activity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener{
@@ -23,7 +35,7 @@ public class Signup_Activity extends AppCompatActivity implements
         setContentView(R.layout.sign_up_page);
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin = (Spinner) findViewById(R.id.role);
+        Spinner spin = findViewById(R.id.role);
         spin.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the roles list
@@ -32,7 +44,7 @@ public class Signup_Activity extends AppCompatActivity implements
         //Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
-        Button btn = (Button)findViewById(R.id.Log_In);
+        Button btn = findViewById(R.id.Log_In);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +53,43 @@ public class Signup_Activity extends AppCompatActivity implements
             }
         });
 
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
+        EditText username = findViewById(R.id.Username);
+        EditText password = findViewById(R.id.Password);
+        Button signup = findViewById(R.id.Sign_up);
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String txt_username = username.getText().toString();
+                String txt_password = password.getText().toString();
+
+                if(TextUtils.isEmpty(txt_username)){
+                    Toast.makeText(Signup_Activity.this, "Empty Username!",
+                            Toast.LENGTH_SHORT).show();
+                } else if (txt_password.length() < 8) {
+                    Toast.makeText(Signup_Activity.this,
+                            "Password too short! Should be more than 8 characters.",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    registerStudent(database, txt_username, txt_password);
+                }
+            }
+        });
+
+    }
+
+    private void registerStudent(DatabaseReference database,
+                                 String txt_username, String txt_password) {
+        HashMap<String, Object> student = new HashMap<>();
+        student.put("name", txt_username);
+        student.put("pass_hash", String.valueOf(txt_password.hashCode()));
+        student.put("salt_hash", String.valueOf(txt_username.hashCode() + txt_password.hashCode()));
+
+        database.child("DATABASE").child("STUDENTS").push().child("1").updateChildren(student);
+        Toast.makeText(Signup_Activity.this,"Registering user successful!",
+                Toast.LENGTH_SHORT).show();
     }
 
     //Performing action onItemSelected and onNothing selected
@@ -53,8 +101,4 @@ public class Signup_Activity extends AppCompatActivity implements
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
-
-
-
-
 }

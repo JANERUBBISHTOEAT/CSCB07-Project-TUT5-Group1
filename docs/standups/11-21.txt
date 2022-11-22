@@ -1,0 +1,66 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Worked on view all courses function
+
+What are you planning on doing today?
+	- Finish view all courses function and ui design
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Finish ui design for login page
+
+What are you planning on doing today?
+	- Plan to finish login page
+
+Any impediments or stumbling blocks?
+	- Don't know how to create view
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Create a new branch to work on the login page
+	- Finished UI design for sign up page
+	- finished button for switch between login and signup
+	- Debug whole project, fixed bugs and make sure the project can build
+
+What are you planning on doing today?
+	- Finish sign up page
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- As a new branch has been created, I have merged the new branch to my local branch and tested the new branch.
+	- Fixed some bugs in the new branch, renamed some files, and added some comments.
+	- Added Firebase Realtime Database to the project.
+	- Created a Test Page for the Database, and I have tested it using former data.
+	- Managed the Github repository, renamed branched, and set up the branch protection rules.
+
+What are you planning on doing today?
+	- Help with Sign Up Page.
+	- Continue to test the Database.
+
+Any impediments or stumbling blocks?
+	- None
