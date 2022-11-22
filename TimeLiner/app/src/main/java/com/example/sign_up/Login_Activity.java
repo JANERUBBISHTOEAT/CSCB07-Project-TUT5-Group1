@@ -9,8 +9,6 @@ import android.widget.Button;
 
 public class Login_Activity extends AppCompatActivity{
 
-    String[] roles = {"Student","Administrator"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

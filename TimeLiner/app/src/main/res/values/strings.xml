@@ -13,7 +13,7 @@
     <string name="test_database_button">Test Database</string>
 
     <string name="log_in">Logging in</string>
-    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="do_not_have_account">Don\'t have an account?</string>
 
     <string-array name="roles">
         <item>Student</item>
