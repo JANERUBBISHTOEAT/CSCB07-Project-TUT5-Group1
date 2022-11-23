@@ -21,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-
 // import MD5
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -99,47 +98,46 @@ public class Login_Activity extends AppCompatActivity {
 
     private void loginStudent(DatabaseReference database, String txt_username, String txt_password) {
 
+        Toast.makeText(Login_Activity.this, "Logging in...",
+                Toast.LENGTH_SHORT).show();
         database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> snapshot) {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> snapshot) {
+                // database.child("DATABASE").child("STUDENTS").child(txt_username)
+                // .addListenerForSingleValueEvent(new ValueEventListener() {
+                // @Override
+                // public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                        // database.child("DATABASE").child("STUDENTS").child(txt_username)
-                        // .addListenerForSingleValueEvent(new ValueEventListener() {
-                        // @Override
-                        // public void onDataChange(@NonNull DataSnapshot snapshot) {
+                DataSnapshot data_snap = snapshot.getResult().child("DATABASE").child("STUDENTS");
 
-                        DataSnapshot data_snap = snapshot.getResult().child("DATABASE").child("STUDENTS");
-
-                        if (!snapshot.isSuccessful()) {
-                            Log.e("firebase", "Error getting data", snapshot.getException());
-                            Toast.makeText(Login_Activity.this, "Error getting data",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else if (!data_snap.hasChild(txt_username)) {
-                            Log.e("firebase", "User not found");
-                            Toast.makeText(Login_Activity.this, "User not found",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            // HashMap<String, Object> student = new HashMap<>();
-                            String pass_md5 = md5(txt_password);
-                            String pass_md5_salt = md5(txt_username + pass_md5);
-                            if (data_snap.child("password").getValue().toString().equals(pass_md5) &&
-                                    snapshot.getResult().child("password_salt").getValue().toString()
-                                            .equals(pass_md5_salt)) {
-                                Log.i("Login", "Login Successful");
-                                Toast.makeText(Login_Activity.this, "Login Successful!",
-                                        Toast.LENGTH_SHORT).show();
-                                // Waiting for the Student Page
-                                // startActivity(new Intent(Login_Activity.this, StudentActivity.class));
-                            } else {
-                                Log.e("Login", "Password Wrong!");
-                                Toast.makeText(Login_Activity.this, "Wrong Password!",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }
+                if (!snapshot.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", snapshot.getException());
+                    Toast.makeText(Login_Activity.this, "Error getting data",
+                            Toast.LENGTH_SHORT).show();
+                } else if (!data_snap.hasChild(txt_username)) {
+                    Log.e("firebase", "User not found");
+                    Toast.makeText(Login_Activity.this, "User not found",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    // HashMap<String, Object> student = new HashMap<>();
+                    String pass_md5 = md5(txt_password);
+                    String pass_md5_salt = md5(txt_username + pass_md5);
+                    String pass_web = data_snap.child(txt_username).child("pass_hash").getValue().toString();
+                    String pass_salt_web = data_snap.child(txt_username).child("salt_hash").getValue().toString();
+                    if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
+                        Log.i("Login", "Login Successful");
+                        Toast.makeText(Login_Activity.this, "Login Successful!",
+                                Toast.LENGTH_SHORT).show();
+                        // Waiting for the Student Page
+                        // startActivity(new Intent(Login_Activity.this, StudentActivity.class));
+                    } else {
+                        Log.e("Login", "Password Wrong!");
+                        Toast.makeText(Login_Activity.this, "Wrong Password!",
+                                Toast.LENGTH_SHORT).show();
                     }
-                });
+                }
+            }
+        });
     }
 }

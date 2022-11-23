@@ -147,6 +147,7 @@ public class Signup_Activity extends AppCompatActivity implements
                     Log.d("TAG", "registerStudent: " + student);
                     Toast.makeText(Signup_Activity.this, "Registering user successful!",
                             Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Signup_Activity.this, Login_Activity.class));
                 }
             }
         });
