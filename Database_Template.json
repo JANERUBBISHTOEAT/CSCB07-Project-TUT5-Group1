@@ -14,6 +14,20 @@
                     "winter": true
                 },
                 "course_visible": true
+            },
+            "course_1": {
+                "course_id": "course_1",
+                "course_name": "1",
+                "course_pre": {
+                    "course_1": "course_1",
+                    "course_2": "course_2"
+                },
+                "course_session_offering": {
+                    "fall": true,
+                    "summer": true,
+                    "winter": true
+                },
+                "course_visible": true
             }
         },
         "STUDENTS": {

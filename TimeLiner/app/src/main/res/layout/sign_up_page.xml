@@ -34,7 +34,7 @@
             android:textColor="@color/pink"
             app:layout_constraintBottom_toTopOf="@+id/role"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Password"
+            app:layout_constraintTop_toBottomOf="@+id/Password_Login"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
@@ -45,12 +45,12 @@
             android:layout_marginTop="12dp"
             android:text="@string/password"
             android:textColor="@color/pink"
-            app:layout_constraintBottom_toTopOf="@+id/Password"
+            app:layout_constraintBottom_toTopOf="@+id/Password_Signup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Username" />
+            app:layout_constraintTop_toBottomOf="@+id/Username_Signup" />
 
         <Button
-            android:id="@+id/Sign_up"
+            android:id="@+id/Sign_Up_Btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@+id/role" />
 
         <EditText
-            android:id="@+id/Username"
+            android:id="@+id/Username_Signup"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="50dp"
@@ -79,13 +79,13 @@
             android:inputType="text"
             android:textAlignment="viewStart"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/Password"
+            app:layout_constraintBottom_toTopOf="@+id/Password_Signup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Signing" />
 
         <EditText
-            android:id="@+id/Password"
+            android:id="@+id/Password_Signup"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="50dp"
@@ -100,7 +100,7 @@
             app:layout_constraintBottom_toTopOf="@+id/role"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Username" />
+            app:layout_constraintTop_toBottomOf="@+id/Username_Signup" />
 
         <Spinner
             android:id="@+id/role"
@@ -111,10 +111,10 @@
             android:layout_marginEnd="50dp"
             android:layout_marginBottom="32dp"
             android:background="@color/light_pink"
-            app:layout_constraintBottom_toTopOf="@+id/Sign_up"
+            app:layout_constraintBottom_toTopOf="@+id/Sign_Up_Btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Password" />
+            app:layout_constraintTop_toBottomOf="@+id/Password_Signup" />
 
         <TextView
             android:id="@+id/Signing"
@@ -128,7 +128,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/pink"
             android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/Username"
+            app:layout_constraintBottom_toTopOf="@+id/Username_Signup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -140,7 +140,7 @@
             android:layout_marginTop="39dp"
             android:text="@string/Username"
             android:textColor="@color/pink"
-            app:layout_constraintBottom_toTopOf="@+id/Username"
+            app:layout_constraintBottom_toTopOf="@+id/Username_Signup"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Signing"
             app:layout_constraintVertical_bias="1.0" />
@@ -153,13 +153,13 @@
             android:text="@string/already_have_an_account"
             android:textColor="@color/pink"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Log_In"
+            app:layout_constraintEnd_toStartOf="@+id/Goto_Login_Btn"
             app:layout_constraintHorizontal_bias="0.215"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Sign_up" />
+            app:layout_constraintTop_toBottomOf="@+id/Sign_Up_Btn" />
 
         <Button
-            android:id="@+id/Log_In"
+            android:id="@+id/Goto_Login_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
@@ -171,7 +171,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/Sign_up"
+            app:layout_constraintTop_toBottomOf="@+id/Sign_Up_Btn"
             app:layout_constraintVertical_bias="0.412"
             tools:visibility="visible" />
 
