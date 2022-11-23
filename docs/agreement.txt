@@ -16,3 +16,13 @@ Scheduled times for all daily standup meetings:
 
 Version Control using GitHub: https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1.git
 
+
+Variable names:
+1. Show the type of the variable in the variable name: Login_Btn
+2. Show field width in the variable name: Password_Login
+
+Push to GitHub:
+1. Push to "shared" branch
+2. Create a pull request to "master" branch when you finish a feature
+3. Before push, pull the latest version from "master" branch
+4. Before push, make sure your code can be compiled
