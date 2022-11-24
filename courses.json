@@ -1,0 +1,158 @@
+[
+  {
+    "course_name": "CSCA08H3: Introduction to Computer Science I",
+    "course_prerequisites": "Grade 12 Calculus and Vectors and one other Grade 12 mathematics course."
+  },
+  {
+    "course_name": "CSCA20H3: Introduction to Programming",
+    "course_prerequisites": ""
+  },
+  {
+    "course_name": "CSCA48H3: Introduction to Computer Science II",
+    "course_prerequisites": "CSCA08H3"
+  },
+  {
+    "course_name": "CSCA67H3: Discrete Mathematics",
+    "course_prerequisites": "Grade 12 Calculus and Vectors and one other Grade 12 mathematics course"
+  },
+  {
+    "course_name": "CSCB07H3: Software Design",
+    "course_prerequisites": "CSCA48H3 and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCB09H3: Software Tools and Systems Programming",
+    "course_prerequisites": "CSCA48H3 and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCB20H3: Introduction to Databases and Web Applications",
+    "course_prerequisites": "Some experience with programming in an imperative language such as Python, Java or C."
+  },
+  {
+    "course_name": "CSCB36H3: Introduction to the Theory of Computation",
+    "course_prerequisites": "CSCA48H3 and [(CSCA65H3) or CSCA67H3] and [CGPA  of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCB58H3: Computer Organization",
+    "course_prerequisites": "[CSCA48H3 or PHYB57H3/(PSCB57H3)] and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCB63H3: Design and Analysis of Data Structures",
+    "course_prerequisites": "CSCB36H3 and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCC01H3: Introduction to Software Engineering",
+    "course_prerequisites": "CSCB07H3, CSCB09H3, and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCC09H3: Programming on the Web",
+    "course_prerequisites": "CSCB09H3 and CSCC43H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC10H3: Human-Computer Interaction",
+    "course_prerequisites": "CSCB07H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC11H3: Introduction to Machine Learning and Data Mining",
+    "course_prerequisites": "MATB24H3 and MATB41H3 and STAB52H3 and [CGPA of at least 3.5 or enrolment in a CSC Subject POSt or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]."
+  },
+  {
+    "course_name": "CSCC24H3: Principles of Programming Languages",
+    "course_prerequisites": "CSCB07H3 and CSCB09H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC37H3: Introduction to Numerical Algorithms for Computational Mathematics",
+    "course_prerequisites": "MATA22H3 and [MATA36H3 or MATA37H3] and [CGPA of at least 3.5 or enrolment in a CSC Subject POSt or enrolment in a non-CSC Subject POst for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCC43H3: Introduction to Databases",
+    "course_prerequisites": "CSCB09H3 and CSCB63H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC46H3: Social and Information Networks",
+    "course_prerequisites": "CSCB63H3 and STAB52H3 and [MATA22H3 or MATA23H3] and [a CGPA of 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC63H3: Computability and Computational Complexity",
+    "course_prerequisites": "CSCB36H3 and CSCB63H3 and [CGPA of at least 3.5, or enrolment in a CSC Subject POSt, or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]]"
+  },
+  {
+    "course_name": "CSCC69H3: Operating Systems",
+    "course_prerequisites": "CSCB07H3 and CSCB09H3 and CSCB58H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCC73H3: Algorithm Design and Analysis",
+    "course_prerequisites": "CSCB63H3 and STAB52H3 and [CGPA of at least 3.5 or enrolment in a CSC Subject POSt or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCC85H3: Fundamentals of Robotics and Automated Systems",
+    "course_prerequisites": "CSCB58H3 and CSCB09H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD01H3: Engineering Large Software Systems",
+    "course_prerequisites": "CSCC01H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD03H3: Social Impact of Information Technology",
+    "course_prerequisites": "14.0 credits and enrolment in a Computer Science Subject POSt. Restricted to students in the Specialist/Specialist Co-op programs in Computer Science or in the Specialist/Specialist Co-op programs in Management and Information Technology"
+  },
+  {
+    "course_name": "CSCD18H3: Computer Graphics",
+    "course_prerequisites": "MATB24H3 and MATB41H3 and [CSCB09H3 or proficiency in C] and CSCC37H3 and [a CGPA of at least 3.5 or enrolment in a Computer Science Subject POSt]"
+  },
+  {
+    "course_name": "CSCD25H3: Advanced Data Analysis",
+    "course_prerequisites": "CSCB63H3 and CSCC11H3 and [a CGPA of 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD27H3: Computer and Network Security",
+    "course_prerequisites": "CSCB09H3 and CSCB36H3 and CSCB58H3 and [CGPA of at least 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD37H3: Analysis of Numerical Algorithms for Computational Mathematics",
+    "course_prerequisites": "CSCC37H3 and MATB24H3 and MATB41H3 and [CGPA of at least 3.5 or enrolment in a CSC Subject POSt or enrolment in a non-CSC Subject POSt for which this specific course is a program requirement]"
+  },
+  {
+    "course_name": "CSCD43H3: Database System Technology",
+    "course_prerequisites": "CSCC43H3 and CSCC69H3 and CSCC73H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD54H3: Technology Innovation and Entrepreneurship",
+    "course_prerequisites": "A minimum of 2.5 credits at the B-level or higher in CSC courses"
+  },
+  {
+    "course_name": "CSCD58H3: Computer Networks",
+    "course_prerequisites": "CSCB58H3 and CSCB63H3 and STAB52H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD70H3: Compiler Optimization",
+    "course_prerequisites": "CSCB63H3 and CSCC69H3 and [CGPA 3.5 or enrolment in a CSC Subject POSt]"
+  },
+  {
+    "course_name": "CSCD71H3: Topics in Computer Science",
+    "course_prerequisites": "Permission of the instructor and [CGPA 3.5 or enrolment in a CSC Subject POSt]. Normally intended for students who have completed at least 8 credits."
+  },
+  {
+    "course_name": "CSCD72H3: Topics in the Theory of Computing",
+    "course_prerequisites": "Permission of the instructor and [CGPA 3.5 or enrolment in a CSC Subject POSt]. Normally intended for students who have completed at least 8 credits."
+  },
+  {
+    "course_name": "CSCD84H3: Artificial Intelligence",
+    "course_prerequisites": "STAB52H3 and CSCB63H3 and [a CGPA of 3.5 or enrolment in a CSC subject POSt]"
+  },
+  {
+    "course_name": "CSCD90H3: The Startup Sandbox",
+    "course_prerequisites": "A minimum of 2.5 credits at the B-level or higher in CSC courses"
+  },
+  {
+    "course_name": "CSCD92H3: Readings in Computer Science",
+    "course_prerequisites": "Students must obtain consent from the Supervisor of Studies before registering for this course."
+  },
+  {
+    "course_name": "CSCD94H3: Computer Science Project",
+    "course_prerequisites": "[Three C-level CSC courses] and [permission of the Supervisor of Studies] and [CGPA 3.0 or enrolment in a CSC Subject POSt] Enrolment procedures: Project supervisor's note of agreement must be presented to the Supervisor of Studies, who must issue permission for registration."
+  },
+  {
+    "course_name": "CSCD95H3: Computer Science Project",
+    "course_prerequisites": "CSCD94H3 Enrolment procedures: Project supervisor's note of agreement must be presented to the Supervisor of Studies, who must issue permission for registration."
+  }
+]
