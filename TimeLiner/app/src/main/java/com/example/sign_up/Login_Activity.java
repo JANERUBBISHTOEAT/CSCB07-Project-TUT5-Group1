@@ -98,8 +98,6 @@ public class Login_Activity extends AppCompatActivity {
 
     private void loginStudent(DatabaseReference database, String txt_username, String txt_password) {
 
-        Toast.makeText(Login_Activity.this, "Logging in...",
-                Toast.LENGTH_SHORT).show();
         database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 
             @Override
@@ -117,7 +115,7 @@ public class Login_Activity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 } else if (!data_snap.hasChild(txt_username)) {
                     Log.e("firebase", "User not found");
-                    Toast.makeText(Login_Activity.this, "User not found",
+                    Toast.makeText(Login_Activity.this, "User not found!",
                             Toast.LENGTH_SHORT).show();
                 } else {
                     // HashMap<String, Object> student = new HashMap<>();

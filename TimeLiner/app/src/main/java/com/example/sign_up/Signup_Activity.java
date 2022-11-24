@@ -68,16 +68,26 @@ public class Signup_Activity extends AppCompatActivity implements
                 String txt_username = username.getText().toString();
                 String txt_password = password.getText().toString();
 
+                // Validate the input
                 if (TextUtils.isEmpty(txt_username)) {
                     Toast.makeText(Signup_Activity.this, "Empty Username!",
                             Toast.LENGTH_SHORT).show();
-                } else if (txt_password.length() < 8) {
+                    return;
+                }
+                if (txt_username.length() > 20) {
+                    Toast.makeText(Signup_Activity.this, "Username too long! (<= 20 characters)",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (txt_password.length() < 8) {
                     Toast.makeText(Signup_Activity.this,
                             "Password too short! Should be more than 8 characters.",
                             Toast.LENGTH_SHORT).show();
-                } else {
-                    registerStudent(database, txt_username, txt_password);
+                    return;
                 }
+
+                // Input is valid, create a new user
+                registerStudent(database, txt_username, txt_password);
             }
         });
 
@@ -108,7 +118,6 @@ public class Signup_Activity extends AppCompatActivity implements
 
     private void registerStudent(DatabaseReference database,
             String txt_username, String txt_password) {
-        // Boolean process_success = false;
         HashMap<String, Object> student = new HashMap<>();
 
         // MD5 the password
@@ -170,7 +179,8 @@ public class Signup_Activity extends AppCompatActivity implements
     // Performing action onItemSelected and onNothing selected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        // Toast.makeText(getApplicationContext(), roles[position], Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(), roles[position],
+        // Toast.LENGTH_LONG).show();
     }
 
     @Override
