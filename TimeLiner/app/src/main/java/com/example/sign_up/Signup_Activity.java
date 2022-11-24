@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 // import MD5
@@ -47,7 +46,8 @@ public class Signup_Activity extends AppCompatActivity implements
         // Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
-        Button btn = findViewById(R.id.Log_In);
+        // Goto Login Page
+        Button btn = findViewById(R.id.Goto_Login_Btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,28 +56,38 @@ public class Signup_Activity extends AppCompatActivity implements
             }
         });
 
+        // Sign Up Part
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        EditText username = findViewById(R.id.Username_Signup);
+        EditText password = findViewById(R.id.Password_Signup);
+        Button signup_btn = findViewById(R.id.Sign_Up_Btn);
 
-        EditText username = findViewById(R.id.Username);
-        EditText password = findViewById(R.id.Password);
-        Button signup = findViewById(R.id.Sign_up);
-
-        signup.setOnClickListener(new View.OnClickListener() {
+        signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt_username = username.getText().toString();
                 String txt_password = password.getText().toString();
 
+                // Validate the input
                 if (TextUtils.isEmpty(txt_username)) {
                     Toast.makeText(Signup_Activity.this, "Empty Username!",
                             Toast.LENGTH_SHORT).show();
-                } else if (txt_password.length() < 8) {
+                    return;
+                }
+                if (txt_username.length() > 20) {
+                    Toast.makeText(Signup_Activity.this, "Username too long! (<= 20 characters)",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (txt_password.length() < 8) {
                     Toast.makeText(Signup_Activity.this,
                             "Password too short! Should be more than 8 characters.",
                             Toast.LENGTH_SHORT).show();
-                } else {
-                    registerStudent(database, txt_username, txt_password);
+                    return;
                 }
+
+                // Input is valid, create a new user
+                registerStudent(database, txt_username, txt_password);
             }
         });
 
@@ -108,7 +118,6 @@ public class Signup_Activity extends AppCompatActivity implements
 
     private void registerStudent(DatabaseReference database,
             String txt_username, String txt_password) {
-        // Boolean process_success = false;
         HashMap<String, Object> student = new HashMap<>();
 
         // MD5 the password
@@ -129,7 +138,6 @@ public class Signup_Activity extends AppCompatActivity implements
                 } else {
                     // Log STUDENT_NUM
                     Log.d("firebase", String.valueOf(task.getResult().child("STUDENT_NUM").getValue()));
-
                     // Check if the username is already taken
                     if (task.getResult().child("DATABASE").child("STUDENTS").hasChild(txt_username)) {
                         Toast.makeText(Signup_Activity.this, "Username already taken!",
@@ -144,9 +152,11 @@ public class Signup_Activity extends AppCompatActivity implements
                     student.put("salt_hash", pass_md5_username);
 
                     database.child("DATABASE").child("STUDENTS").child(txt_username).updateChildren(student);
+                    database.child("STUDENT_NUM").setValue(id + 1); // Update the STUDENT_NUM
                     Log.d("TAG", "registerStudent: " + student);
                     Toast.makeText(Signup_Activity.this, "Registering user successful!",
                             Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Signup_Activity.this, Login_Activity.class));
                 }
             }
         });
@@ -169,7 +179,8 @@ public class Signup_Activity extends AppCompatActivity implements
     // Performing action onItemSelected and onNothing selected
     @Override
     public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(), roles[position], Toast.LENGTH_LONG).show();
+        // Toast.makeText(getApplicationContext(), roles[position],
+        // Toast.LENGTH_LONG).show();
     }
 
     @Override

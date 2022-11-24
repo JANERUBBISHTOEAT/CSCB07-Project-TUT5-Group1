@@ -1,26 +1,25 @@
 Name: Qihui Li
 
 What have you done since yesterday?
-	- <What you have done>
+	- Completed front-end of the viewCourse page
+	- Completed most of back-end of the viewCourse page
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Finish back-end of the viewCourse page
+	- Testing
 
 Any impediments or stumbling blocks?
-	- None
+	- Android ListView is not working as expected
 
 
 Name: Xinzi Huang
 
 What have you done since yesterday?
-	- <What you have done>
+	- Studied how to use firebase
+	- Wrote part of the sign up function 
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Complete log in function
 
 Any impediments or stumbling blocks?
 	- None
@@ -29,26 +28,22 @@ Any impediments or stumbling blocks?
 Name: Zhiyu Pan
 
 What have you done since yesterday?
-	- <What you have done>
+	- None
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- None
 
 Any impediments or stumbling blocks?
-	- None
+	- Personal affairs
 
 
 Name: Yibai Wang
 
 What have you done since yesterday?
-	- <What you have done>
+	- None
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- None
 
 Any impediments or stumbling blocks?
 	- None
@@ -57,12 +52,25 @@ Any impediments or stumbling blocks?
 Name: Zheyuan Wei
 
 What have you done since yesterday?
-	- <What you have done>
+	- Completed SignUp function and passed tests
+	- Rewrote hash with md5
+
+	- Improved SignUp function by adding rules:
+		- No duplicate username allowed
+		- "id" is now a readable value in database, do not need to iterate
+
+	- Database change:
+		- keys of students and courses switched from "id" to "name" for the ease of future use
+		- Structure of students and courses switched from list to objects for the ease of use
+
+	- Github change:
+		- Merged all branches into master, resolved conflicts
+		- Added a new branch "shared" for testing
+		- Added branch protection rules to main branch
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Modify LogIn function to reflect the change of database
+	- If time permits, start working on the front-end of ShowCourses Page
 
 Any impediments or stumbling blocks?
 	- None

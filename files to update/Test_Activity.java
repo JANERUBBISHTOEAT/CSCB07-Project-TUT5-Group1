@@ -41,21 +41,21 @@ public class Test_Activity extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference();
 
                 // Write a message to the database
-                // myRef.child("Test").setValue("Hello, World!");
-                // Log.i("Test_Activity", "----onClick: Write to Database----");
+//                myRef.child("Test").setValue("Hello, World!");
+//                Log.i("Test_Activity", "----onClick: Write to Database----");
 
                 // Log all the data in the database
-                myRef.child("DATABASE").child("STUDENTS").get()
-                        .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                if (!task.isSuccessful()) {
-                                    Log.e("firebase", "----Error getting data----", task.getException());
-                                } else {
-                                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                }
-                            }
-                        });
+                myRef.child("DATABASE").child("STUDENTS").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "----Error getting data----", task.getException());
+                        }
+                        else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        }
+                    }
+                });
             }
         });
 
@@ -63,7 +63,6 @@ public class Test_Activity extends AppCompatActivity {
         findViewById(R.id.test_view_courses).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Test_Activity", "----onClick: Goto View Courses Page----");
                 startActivity(new Intent(Test_Activity.this, CoursesTaken_Activity.class));
             }
         });
