@@ -13,8 +13,8 @@
 
 ## Current Sprint
 
-- [ ] [CSCB07T5 Sprint 1](https://zheyuan-wei.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
-  - [ ] [As a student, I want to sign up and login to my account so that I can securely access my data.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-4)
+- [x] [CSCB07T5 Sprint 1](https://zheyuan-wei.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
+  - [x] [As a student, I want to sign up and login to my account so that I can securely access my data.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-4)
   - [ ] [As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-6)
   - [ ] [As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-7)
 - [ ] [CSCB07T5 Sprint 2](about:blank)
