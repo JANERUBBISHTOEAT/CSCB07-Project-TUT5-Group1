@@ -167,8 +167,10 @@ public class Course {
     // toString method
     @Override
     public String toString() {
-        return "Course [courseCode=" + courseCode + ", courseName=" + courseName + ", preRequisiteCourses="
-                + preRequisiteCourses + "]";
+        String ln1 = this.courseCode + " - " + this.courseName;
+        String ln2 = "Session Offered: " + this.sessionOffered.toString();
+        String ln3 = "Pre-requisites: " + preRequisiteCourses.toString();
+        return ln1 + "\n" + ln2+ "\n" + ln3;
     }
 
     // equals method
