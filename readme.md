@@ -1,7 +1,10 @@
 # CSCB07 Project
 
-*Last updated: 2022-11-16*
-*Recent changes: Added [readme.md](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1/blob/master/readme.md)*
+*Last updated: 2022-11-24*
+
+## Notice
+
+Always read the [agreement](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1/blob/main/docs/agreement.txt) before you start working on the project. You can find the agreement in the `docs` folder.
 
 ## Team Members
 
@@ -13,15 +16,21 @@
 
 ## Current Sprint
 
-- [ ] [CSCB07T5 Sprint 1](https://zheyuan-wei.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
-  - [ ] [As a student, I want to sign up and login to my account so that I can securely access my data.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-4)
+- [x] [CSCB07T5 Sprint 1](https://zheyuan-wei.atlassian.net/secure/GHGoToBoard.jspa?sprintId=1)
+  - [x] [As a student, I want to sign up and login to my account so that I can securely access my data.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-4)
   - [ ] [As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-6)
   - [ ] [As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-7)
-- [ ] [CSCB07T5 Sprint 2](about:blank)
+
+- [ ] [CSCB07T5 Sprint 2](https://zheyuan-wei.atlassian.net/jira/software/projects/CSCB07T5G1/boards/1)
+  - [ ] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
+  - [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
+  - [ ] As an admin, I want to login to my account so that I can securely manage course information.
+  - [ ] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
+  - [ ] As an admin, I want to view the list of all courses and edit or delete any course in the list so that I can keep the course information up to date.
 
 ## User Stories
 
-1. [ ] As a student, I want to sign up and login to my account so that I can securely access my data.
+1. [x] As a student, I want to sign up and login to my account so that I can securely access my data.
 2. [ ] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
 3. [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
 4. [ ] As an admin, I want to login to my account so that I can securely manage course information.
