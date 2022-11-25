@@ -1,0 +1,65 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Started view courses for admin
+	- Tests on relevant functions
+
+What are you planning on doing today?
+	- Finish view courses for admin
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Learned Model-View-Presenter
+
+What are you planning on doing today?
+	- Construct admin database
+
+Any impediments or stumbling blocks?
+	- Preparing for other course's quiz
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Rough design for student and adm page 
+
+What are you planning on doing today?
+	- Design other pages
+Any impediments or stumbling blocks?
+	- Copy paste hxz
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Designed the planner activity UI
+	- Wrote the demo function for importing wishlist courses from database
+
+What are you planning on doing today?
+	- The demo function for adding prerequisite courses
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Added Course and Session classes to the module
+		- Except getFromDatabase function
+	- Minor improvements to the database
+	- Added a few more test cases on test page
+	- Scraped All CS Courses from the UTSC website
+		- 39 courses in total, sessions are not included
+
+What are you planning on doing today?
+	- Continue working on the getFromDatabase function
+	- Add more test cases on test page
+	- If required, make some changes to the Course and Session classes
+
+Any impediments or stumbling blocks?
+	- Firebase uses asynchronous functions, which makes it hard to wrap the functions in a class
