@@ -41,10 +41,9 @@ public class CoursesTaken_Activity extends AppCompatActivity {
         setContentView(R.layout.courses_taken_page);
 
         String studentID = "student_0"; // set id for test
-        ArrayList<String> courseTakenList = new ArrayList<String>();
-        ArrayList<String> keys = new ArrayList<String>();
+        ArrayList<String> CourseTaken_List = new ArrayList<String>();
+        ArrayList<String> Keys_List = new ArrayList<String>();
 
-        String database_url = "https://cscb07-project-tut5-grou-f0436-default-rtdb.firebaseio.com/";
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
@@ -52,10 +51,10 @@ public class CoursesTaken_Activity extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        keys.clear();
+                        Keys_List.clear();
                         for (DataSnapshot key : snapshot.getChildren()) {
-                            keys.add(key.getKey());
-                            Log.d("view", keys.toString());
+                            Keys_List.add(key.getKey());
+                            Log.d("KeyList", Keys_List.toString());
                         }
                     }
 
@@ -64,24 +63,21 @@ public class CoursesTaken_Activity extends AppCompatActivity {
                     }
                 });
 
-        myRef.child("DATABASE").child("COURSE").addValueEventListener(new ValueEventListener() {
+        myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                courseTakenList.clear();
+                CourseTaken_List.clear();
                 for (DataSnapshot key : snapshot.getChildren()) {
-                    if (keys.contains(key.getKey())) {
-                        String course_name = key.child("course_name").getValue().toString();
-                        courseTakenList.add(key.getKey() + " " + course_name);
-                        // Log.d("view", courseTakenList.toString());
-                        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(CoursesTaken_Activity.this,
-                                android.R.layout.simple_list_item_1, courseTakenList);
-                        ListView listView = (ListView) findViewById(R.id.course_taken_view);
-                        listView.setAdapter(itemsAdapter);
+                    if (Keys_List.contains(key.getKey())) {
+                        String course_name = key.child("courseName").getValue().toString();
+                        CourseTaken_List.add(key.getKey() + " " + course_name);
                     }
                 }
-
-                Log.d("view", courseTakenList.toString());
-
+                ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(CoursesTaken_Activity.this,
+                        android.R.layout.simple_list_item_1, CourseTaken_List);
+                ListView listView = (ListView) findViewById(R.id.course_taken_view);
+                listView.setAdapter(itemsAdapter);
+                Log.d("CourseList", CourseTaken_List.toString());
             }
 
             @Override
@@ -89,14 +85,6 @@ public class CoursesTaken_Activity extends AppCompatActivity {
             }
         });
 
-        // check course list
-        Log.d("___________", courseTakenList.toString());
-
-        // ArrayAdapter<String> itemsAdapter =
-        // new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
-        // courseTakenList);
-        // ListView listView = (ListView) findViewById(R.id.course_taken_view);
-        // listView.setAdapter(itemsAdapter);
     }
 
 }
