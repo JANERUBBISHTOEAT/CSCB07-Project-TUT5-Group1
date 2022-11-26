@@ -63,7 +63,7 @@ public class CoursesTaken_Activity extends AppCompatActivity {
             }
         });
 
-        myRef.child("DATABASE").child("COURSE").addValueEventListener(new ValueEventListener() {
+        myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 courseTakenList.clear();

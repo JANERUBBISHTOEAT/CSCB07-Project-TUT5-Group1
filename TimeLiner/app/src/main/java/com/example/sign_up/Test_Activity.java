@@ -21,6 +21,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 // import getResult
 import com.google.android.gms.tasks.Task;
 
+// import Course
+import com.example.sign_up.Course;
+
+// import Toast
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
 public class Test_Activity extends AppCompatActivity {
 
     @Override
@@ -65,6 +73,64 @@ public class Test_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("Test_Activity", "----onClick: Goto View Courses Page----");
                 startActivity(new Intent(Test_Activity.this, CoursesTaken_Activity.class));
+            }
+        });
+
+        // Test Course class by creating a course object and send it to the database
+        findViewById(R.id.Test_JavaCourse_Class_Btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Test_Activity", "----onClick: Test Course Class----");
+                Session session = new Session(true, true, true);
+                ArrayList<String> preRequisiteCourses = new ArrayList<String>();
+                preRequisiteCourses.add("CSCA08");
+                preRequisiteCourses.add("CSCA48");
+                Course course = new Course("Java", "CSCB07", "Java is a programming language", true);
+                course.setSessionOffered(session);
+                course.setPreRequisiteCourses(preRequisiteCourses);
+                course.sendToDatabase();
+            }
+        });
+
+        // Test Course class by getting a course object from the database
+        findViewById(R.id.Test_JavaCourse_Class_Btn2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Test_Activity", "----onClick: Test Course Class----");
+                Course course = new Course();
+                
+                // Does not work
+                // try {
+                //     course.getCourseFromDatabase("CSCB07");
+                //     Toast.makeText(Test_Activity.this, course.getCourseCode(), Toast.LENGTH_SHORT).show();
+                // } catch (InterruptedException e) {
+                //     e.printStackTrace();
+                // }
+
+                // Doesn't work
+                // // Use the custon callback function to get the course object
+                // course.getFromDatabase("CSCB07", new Course.MyCallback() {
+                //     @Override
+                //     public void onCallback(Course course_callback) {
+                //         // set the course object
+                //         course.setCourseName(course_callback.getCourseName());
+                //         course.setCourseCode(course_callback.getCourseCode());
+                //         course.setCourseDescription(course_callback.getCourseDescription());
+                //         course.setSessionOffered(course_callback.getSessionOffered());
+                //         course.setPreRequisiteCourses(course_callback.getPreRequisiteCourses());
+                //         course.setVisible(course_callback.isVisible());
+                //         Toast.makeText(Test_Activity.this, course.getCourseCode(), Toast.LENGTH_SHORT).show();
+                //     }
+                // });
+                // // // Wait until the data is retrieved from the database
+                // // while (course.getCourseName() == null) {
+                // // try {
+                // // Thread.sleep(1000);
+                // // } catch (InterruptedException e) {
+                // // e.printStackTrace();
+                // // }
+                // // }
+                Toast.makeText(Test_Activity.this, course.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }
