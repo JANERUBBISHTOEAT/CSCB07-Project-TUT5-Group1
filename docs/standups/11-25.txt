@@ -39,12 +39,11 @@ Any impediments or stumbling blocks?
 Name: Yibai Wang
 
 What have you done since yesterday?
-	- <What you have done>
+	- Partially Planner Class
+	- Partially AcademicYear Class
 
 What are you planning on doing today?
-	- <What you plan on doing 1...>
-    - <What you plan on doing 2...>
-    - <What you plan on doing 3...>
+	- Complete Planner Class and AcademicYear Class
 
 Any impediments or stumbling blocks?
 	- None
