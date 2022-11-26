@@ -108,29 +108,29 @@ public class Test_Activity extends AppCompatActivity {
                 // }
 
                 // Doesn't work
-                // // Use the custon callback function to get the course object
-                // course.getFromDatabase("CSCB07", new Course.MyCallback() {
-                //     @Override
-                //     public void onCallback(Course course_callback) {
-                //         // set the course object
-                //         course.setCourseName(course_callback.getCourseName());
-                //         course.setCourseCode(course_callback.getCourseCode());
-                //         course.setCourseDescription(course_callback.getCourseDescription());
-                //         course.setSessionOffered(course_callback.getSessionOffered());
-                //         course.setPreRequisiteCourses(course_callback.getPreRequisiteCourses());
-                //         course.setVisible(course_callback.isVisible());
-                //         Toast.makeText(Test_Activity.this, course.getCourseCode(), Toast.LENGTH_SHORT).show();
-                //     }
-                // });
-                // // // Wait until the data is retrieved from the database
-                // // while (course.getCourseName() == null) {
-                // // try {
-                // // Thread.sleep(1000);
-                // // } catch (InterruptedException e) {
-                // // e.printStackTrace();
-                // // }
-                // // }
-                Toast.makeText(Test_Activity.this, course.toString(), Toast.LENGTH_LONG).show();
+                // Use the custom callback function to get the course object
+                course.getFromDatabase("CSCB07", new Course.MyCallback() {
+                    @Override
+                    public void onCallback(Course course_callback) {
+                        // set the course object
+                        course.setCourseName(course_callback.getCourseName());
+                        course.setCourseCode(course_callback.getCourseCode());
+                        course.setCourseDescription(course_callback.getCourseDescription());
+                        course.setSessionOffered(course_callback.getSessionOffered());
+                        course.setPreRequisiteCourses(course_callback.getPreRequisiteCourses());
+                        course.setVisible(course_callback.isVisible());
+                        Toast.makeText(Test_Activity.this, course.getCourseCode(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                // // Wait until the data is retrieved from the database
+                // while (course.getCourseName() == null) {
+                // try {
+                // Thread.sleep(1000);
+                // } catch (InterruptedException e) {
+                // e.printStackTrace();
+                // }
+                // }
+                // Toast.makeText(Test_Activity.this, course.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }

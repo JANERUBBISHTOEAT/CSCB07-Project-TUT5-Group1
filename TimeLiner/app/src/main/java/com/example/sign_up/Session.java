@@ -45,4 +45,26 @@ public class Session {
     public void setFall(Boolean fall) {
         this.fall = fall;
     }
+    
+    @Override
+    public String toString() {
+        if (winter && summer && fall) {
+            return "Winter, Summer, Fall";
+        } else if (winter && summer) {
+            return "Winter, Summer";
+        } else if (winter && fall) {
+            return "Winter, Fall";
+        } else if (summer && fall) {
+            return "Summer, Fall";
+        } else if (winter) {
+            return "Winter";
+        } else if (summer) {
+            return "Summer";
+        } else if (fall) {
+            return "Fall";
+        } else {
+            return "None";
+        }
+    }
+    
 }
