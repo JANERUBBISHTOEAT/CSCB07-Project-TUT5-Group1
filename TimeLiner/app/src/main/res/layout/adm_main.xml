@@ -51,7 +51,7 @@
             android:layout_marginTop="128dp"
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/pink"
-            android:text="Logout"
+            android:text="sign out"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
