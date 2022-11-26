@@ -28,7 +28,7 @@ public class Course {
     String courseDescription;
     boolean visible;
 
-    // Prerequisite Courses List
+    // Prerequisite Courses List of **courseCodes**
     ArrayList<String> preRequisiteCourses = new ArrayList<String>();
 
     // Session Offered List
@@ -167,10 +167,9 @@ public class Course {
     // toString method
     @Override
     public String toString() {
-        String ln1 = this.courseCode + " - " + this.courseName;
-        String ln2 = "Session Offered: " + this.sessionOffered.toString();
-        String ln3 = "Pre-requisites: " + preRequisiteCourses.toString();
-        return ln1 + "\n" + ln2+ "\n" + ln3;
+        return (this.courseCode + " - " + this.courseName + '\n' + 
+                "Prerequisite Courses: " + this.preRequisiteCourses.toString() + '\n' + 
+                "Sessions Offered: " + this.sessionOffered.toString());
     }
 
     // equals method
@@ -231,60 +230,56 @@ public class Course {
     // }
 
     /* Approach 2 */
-    /* Does not work */
-    // // Define a custom callback
-    // public interface MyCallback {
-    //     void onCallback(Course course);
-    // }
+    // Define a custom callback
+    public interface MyCallback {
+        void onCallback(Course course);
+    }
 
-    // // Implement the callback function
-    // public void onCallback(Course course) {
-    //     // set the course object
-    //     this.courseName = course.getCourseName();
-    //     this.courseCode = course.getCourseCode();
-    //     this.courseDescription = course.getCourseDescription();
-    //     this.preRequisiteCourses = course.getPreRequisiteCourses();
-    //     this.sessionOffered = course.getSessionOffered();
-    //     this.visible = course.isVisible();
-
-    //     // // log the course object
-    //     // logCourse();
-    // }
+    // Implement the callback function (Template)
+    public void onCallback(Course course) {
+        // set the course object
+        this.courseName = course.getCourseName();
+        this.courseCode = course.getCourseCode();
+        this.courseDescription = course.getCourseDescription();
+        this.preRequisiteCourses = course.getPreRequisiteCourses();
+        this.sessionOffered = course.getSessionOffered();
+        this.visible = course.isVisible();
+    }
 
 
-    // // Get a course object from the database and return it
-    // public void getFromDatabase(String courseCode, final MyCallback myCallback) {
+    // Get a course object from the database and return it
+    public void getFromDatabase(String courseCode, final MyCallback myCallback) {
 
-    //     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    //     databaseReference.child("DATABASE").child("COURSES").child(courseCode)
-    //             .addListenerForSingleValueEvent(new ValueEventListener() {
-    //                 @Override
-    //                 public void onDataChange(DataSnapshot dataSnapshot) {
-    //                     Course course = dataSnapshot.getValue(Course.class);
-    //                     Log.i("Course", "Course Name: " + course.getCourseName());
-    //                     Log.i("Course", "Course Code: " + course.getCourseCode());
-    //                     Log.i("Course", "Course Description: " + course.getCourseDescription());
-    //                     Log.i("Course", "Prerequisite Courses: " + course.getPreRequisiteCourses());
-    //                     Log.i("Course", "Sessions Offered: " + course.getSessionOffered().getFall() + " "
-    //                             + course.getSessionOffered().getSummer() + " " + course.getSessionOffered().getWinter());
-    //                     Log.i("Course", "Visible: " + course.isVisible());
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("DATABASE").child("COURSES").child(courseCode)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Course course = dataSnapshot.getValue(Course.class);
+                        Log.i("Course", "Course Name: " + course.getCourseName());
+                        Log.i("Course", "Course Code: " + course.getCourseCode());
+                        Log.i("Course", "Course Description: " + course.getCourseDescription());
+                        Log.i("Course", "Prerequisite Courses: " + course.getPreRequisiteCourses());
+                        Log.i("Course", "Sessions Offered: " + course.getSessionOffered().getFall() + " "
+                                + course.getSessionOffered().getSummer() + " " + course.getSessionOffered().getWinter());
+                        Log.i("Course", "Visible: " + course.isVisible());
                         
-    //                     // course_return.setCourseCode(courseCode);
-    //                     // course_return.setCourseName(course.getCourseName());
-    //                     // course_return.setCourseDescription(course.getCourseDescription());
-    //                     // course_return.setPreRequisiteCourses(course.getPreRequisiteCourses());
-    //                     // course_return.setSessionOffered(course.getSessionOffered());
-    //                     // course_return.setVisible(course.isVisible());
+                        // course_return.setCourseCode(courseCode);
+                        // course_return.setCourseName(course.getCourseName());
+                        // course_return.setCourseDescription(course.getCourseDescription());
+                        // course_return.setPreRequisiteCourses(course.getPreRequisiteCourses());
+                        // course_return.setSessionOffered(course.getSessionOffered());
+                        // course_return.setVisible(course.isVisible());
 
-    //                     myCallback.onCallback(course);
+                        myCallback.onCallback(course);
 
-    //                 }
+                    }
 
-    //                 @Override
-    //                 public void onCancelled(DatabaseError databaseError) {
-    //                     Log.i("Course", "Error: " + databaseError.getMessage());
-    //                 }
-    //             });
-    //         return ;
-    // }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.i("Course", "Error: " + databaseError.getMessage());
+                    }
+                });
+            return ;
+    }
 }
