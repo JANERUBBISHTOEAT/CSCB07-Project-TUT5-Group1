@@ -41,15 +41,16 @@ public class Signup_Activity extends AppCompatActivity implements
         spin.setOnItemSelectedListener(this);
 
         // Creating the ArrayAdapter instance having the roles list
-        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, roles);
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,roles);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
         // Goto Login Page
-        Button btn = findViewById(R.id.Goto_Login_Btn);
+        Button goto_login = findViewById(R.id.Goto_Login_Btn);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        // If the user click the Goto_Login_Btn, the app will jump to login_page
+        goto_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Signup_Activity.this, Login_Activity.class));
@@ -57,6 +58,7 @@ public class Signup_Activity extends AppCompatActivity implements
         });
 
         // Sign Up Part
+        // get the user's input
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         EditText username = findViewById(R.id.Username_Signup);
         EditText password = findViewById(R.id.Password_Signup);
@@ -73,26 +75,29 @@ public class Signup_Activity extends AppCompatActivity implements
                     Toast.makeText(Signup_Activity.this, "Empty Username!",
                             Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (txt_username.length() > 20) {
-                    Toast.makeText(Signup_Activity.this, "Username too long! (<= 20 characters)",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (txt_password.length() < 8) {
+                } else if (txt_username.length() > 20) {
                     Toast.makeText(Signup_Activity.this,
-                            "Password too short! Should be more than 8 characters.",
+                            "Username too long! (<= 20 characters)",
                             Toast.LENGTH_SHORT).show();
                     return;
-                }
+                } else if (txt_password.length() < 8) {
+                    Toast.makeText(Signup_Activity.this,
+                            "Password too short! Should be at least 8 characters.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    // store the role selected by user
+                    String role = spin.getSelectedItem().toString();
 
-                // Input is valid, create a new user
-                registerStudent(database, txt_username, txt_password);
+                    // Input is valid, create a new user
+                    registerUser(database, txt_username, txt_password, role);
+                }
             }
         });
 
     }
 
+    // encrypting the password
     private String md5(String input) {
         try {
             // Create MD5 Hash
@@ -116,19 +121,15 @@ public class Signup_Activity extends AppCompatActivity implements
         return "";
     }
 
-    private void registerStudent(DatabaseReference database,
-            String txt_username, String txt_password) {
-        HashMap<String, Object> student = new HashMap<>();
+    private void registerUser(DatabaseReference database,
+            String txt_username, String txt_password, String role) {
 
-        // MD5 the password
-        String pass_md5 = md5(txt_password);
-
-        // MD5 the password with the username
-        String pass_md5_username = md5(txt_username + pass_md5);
+        HashMap<String, Object> user = new HashMap<>(); // empty hashMap to store user information
+        String pass_md5 = md5(txt_password); // MD5 the password
+        String pass_md5_name = md5(txt_username + pass_md5); // MD5 the password with username
 
         // Get a datasnapshot of the database
         database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -139,41 +140,44 @@ public class Signup_Activity extends AppCompatActivity implements
                     // Log STUDENT_NUM
                     Log.d("firebase", String.valueOf(task.getResult().child("STUDENT_NUM").getValue()));
                     // Check if the username is already taken
-                    if (task.getResult().child("DATABASE").child("STUDENTS").hasChild(txt_username)) {
+                    if (task.getResult().child("DATABASE").child("STUDENTS").hasChild(txt_username) ||
+                            task.getResult().child("DATABASE").child("ADMINS").hasChild(txt_username)) {
                         Toast.makeText(Signup_Activity.this, "Username already taken!",
                                 Toast.LENGTH_SHORT).show();
+                        return;
                     }
 
-                    // Get the value of STUDENT_NUM
-                    int id = Integer.parseInt(String.valueOf(task.getResult().child("STUDENT_NUM").getValue()));
-                    student.put("id", id);
-                    student.put("name", txt_username);
-                    student.put("pass_hash", pass_md5);
-                    student.put("salt_hash", pass_md5_username);
+                    // add user's information into the hash map
+                    user.put("name", txt_username);
+                    user.put("pass_hash", pass_md5);
+                    user.put("salt_hash", pass_md5_name);
 
-                    database.child("DATABASE").child("STUDENTS").child(txt_username).updateChildren(student);
-                    database.child("STUDENT_NUM").setValue(id + 1); // Update the STUDENT_NUM
-                    Log.d("TAG", "registerStudent: " + student);
+                    if (role.equals("Student")) { // if the user is a student
+                        // Get the value of STUDENT_NUM
+                        int id = Integer.parseInt(String.valueOf(task.getResult().child("STUDENT_NUM").getValue()));
+                        // update the new student into the database
+                        user.put("id", id);
+                        database.child("DATABASE").child("STUDENTS").child(txt_username).updateChildren(user);
+                        // Update the STUDENT_NUM
+                        database.child("STUDENT_NUM").setValue(id + 1);
+                        Log.d("TAG", "registerStudent: " + user);
+                    } else { // if the user is an admin
+                        // Get the value of STUDENT_NUM
+                        int id = Integer.parseInt(String.valueOf(task.getResult().child("ADMIN_NUM").getValue()));
+                        // update the new admin into the database
+                        user.put("id", id);
+                        database.child("DATABASE").child("ADMINS").child(txt_username).updateChildren(user);
+                        // Update the ADMIN_NUM
+                        database.child("ADMIN_NUM").setValue(id + 1);
+                        Log.d("TAG", "registerAdmin: " + user);
+                    }
+
                     Toast.makeText(Signup_Activity.this, "Registering user successful!",
                             Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Signup_Activity.this, Login_Activity.class));
                 }
             }
         });
-
-        // // Get the value of STUDENT_NUM
-        // id = database.child("STUDENT_NUM").getValue(Integer.class);
-
-        // student.put("id", id);
-        // student.put("name", txt_username);
-        // student.put("pass_hash", pass_md5);
-        // student.put("salt_hash", pass_md5_username);
-
-        // database.child("DATABASE").child("STUDENTS").child("1").updateChildren(student);
-        // Log.d("TAG", "registerStudent: " + student);
-        // Toast.makeText(Signup_Activity.this, "Registering user successful!",
-        // Toast.LENGTH_SHORT).show();
-        // return true;
     }
 
     // Performing action onItemSelected and onNothing selected

@@ -127,8 +127,8 @@ public class Login_Activity extends AppCompatActivity {
                         Log.i("Login", "Login Successful");
                         Toast.makeText(Login_Activity.this, "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
-                        // Waiting for the Student Page
-                        // startActivity(new Intent(Login_Activity.this, StudentActivity.class));
+                        startActivity(new Intent(Login_Activity.this, CoursesTaken_Activity.class));
+                        finish();
                     } else {
                         Log.e("Login", "Password Wrong!");
                         Toast.makeText(Login_Activity.this, "Wrong Password!",
