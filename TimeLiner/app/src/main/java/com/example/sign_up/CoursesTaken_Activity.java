@@ -2,19 +2,12 @@ package com.example.sign_up;
 
 import static android.app.PendingIntent.getActivity;
 
-import static java.security.AccessController.getContext;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 // import Log
 import android.util.Log;
@@ -26,19 +19,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.ValueEventListener;
-import com.google.android.gms.tasks.OnCompleteListener;
 // import getResult
-import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CoursesTaken_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.courses_taken_page);
+        setContentView(R.layout.student_page);
 
         String studentID = "student_0"; // set id for test
         ArrayList<String> CourseTaken_List = new ArrayList<String>();
