@@ -12,11 +12,15 @@ import java.util.ArrayList;
 
 public class Planner {
     ArrayList<AcademicYear> timeline;
+    ArrayList<String> courseTaken;
+    ArrayList<String> courseWanted;
 
     //create an empty planner.
     public Planner(){
         timeline = new ArrayList<AcademicYear>();
         timeline.add(new AcademicYear());
+        courseTaken = new ArrayList<String>();
+        courseWanted = new ArrayList<String>();
     }
 
     //how many years estimate to be taken.
@@ -46,11 +50,24 @@ public class Planner {
         return j;
     }
 
+    //add all taken courses to the courseTaken arraylist of the planner.
+    public void addCourseTaken(String user){} //TO BE ADDED
+
+    //add all wanted courses to the courseWanted arraylist of the planner.
+    public void addCourseWanted(String user){} //TO BE ADDED
+
+
     //given a Course, a given year i, and a semester sem, find the next session available for
     // the course, and add the course to the planner.
     public ArrayList<Integer> addNextSession(Course course, int i, int sem){
         //initialize arraylist j
         ArrayList<Integer> j = new ArrayList<Integer>();
+
+        //check if course is taken.
+        if(this.courseTaken.contains(course.courseCode)){
+            j.add(1);
+            j.add(0);
+        }
         //i = 0 if it is initial input
         if(i == 0){
             j.add(i);
@@ -84,6 +101,7 @@ public class Planner {
         }
         return j;
     }
+
 
     //add all courses to the Planner. For the initial input, int i = 0. int sem = 0 if next
     // semester is winter; sem = 1 if next semester is summer; and sem = 2 if next semester is
