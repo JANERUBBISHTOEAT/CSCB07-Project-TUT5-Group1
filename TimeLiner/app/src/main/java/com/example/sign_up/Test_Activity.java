@@ -133,5 +133,14 @@ public class Test_Activity extends AppCompatActivity {
                 // Toast.makeText(Test_Activity.this, course.toString(), Toast.LENGTH_LONG).show();
             }
         });
+
+        // goto admin's view all courses page
+        findViewById(R.id.test_admin_courses).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Test_Activity", "----onClick: Goto Admin's Courses Page----");
+                startActivity(new Intent(Test_Activity.this, AdminHome_Activity.class));
+            }
+        });
     }
 }
