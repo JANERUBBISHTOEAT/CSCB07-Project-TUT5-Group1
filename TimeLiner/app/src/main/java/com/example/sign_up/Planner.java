@@ -6,6 +6,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -51,10 +52,50 @@ public class Planner {
     }
 
     //add all taken courses to the courseTaken arraylist of the planner.
-    public void addCourseTaken(String user){} //TO BE ADDED
+    public void addCourseTaken(String user){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+                .child("DATABASE").child("STUDENTS").child(user).child("course_taken");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    courseTaken.clear();
+                    for(DataSnapshot dss: snapshot.getChildren()){
+                        String t = dss.getValue(String.class);
+                        courseTaken.add(t);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     //add all wanted courses to the courseWanted arraylist of the planner.
-    public void addCourseWanted(String user){} //TO BE ADDED
+    public void addCourseWanted(String user){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+                .child("DATABASE").child("STUDENTS").child(user).child("course_want");
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    courseWanted.clear();
+                    for(DataSnapshot dss: snapshot.getChildren()){
+                        String t = dss.getValue(String.class);
+                        courseWanted.add(t);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 
     //given a Course, a given year i, and a semester sem, find the next session available for
