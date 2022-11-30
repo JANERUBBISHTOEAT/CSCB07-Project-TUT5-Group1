@@ -19,7 +19,7 @@
         android:textColor="@color/pink"
         app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
         app:layout_constraintEnd_toStartOf="@+id/taken_delete_button"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toEndOf="@+id/taken_edit_text" />
 
     <TextView
         android:id="@+id/course_taken_title"
@@ -75,6 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="8"
+        android:backgroundTint="@color/pink"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
         app:layout_constraintStart_toStartOf="@+id/course_taken_view"
