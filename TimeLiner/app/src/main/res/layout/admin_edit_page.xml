@@ -4,42 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#77B85F80"
     tools:context=".CourseEdit_Activity">
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Visible to Students:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_fall_check" />
 
     <CheckBox
         android:id="@+id/edit_winter_check"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Winter"
+        android:textColor="#FFF7FA"
         app:layout_constraintEnd_toStartOf="@+id/edit_summer_check"
         app:layout_constraintStart_toEndOf="@+id/edit_fall_check"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <CheckBox
         android:id="@+id/edit_summer_check"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
+        android:layout_marginEnd="24dp"
         android:text="Summer"
+        android:textColor="#FFF7FA"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit_winter_check"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:text="Sessions Offered:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -51,6 +59,9 @@
         android:layout_marginStart="4dp"
         android:text="Delete"
         android:textAllCaps="false"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/pink"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
@@ -61,8 +72,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Course"
-        android:textSize="24sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Editing Course"
+        android:textColor="#FFF7FA"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,8 +84,10 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:text="Course Code:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -82,16 +98,20 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:backgroundTint="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.166" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Course Name:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -102,6 +122,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:backgroundTint="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
@@ -113,6 +134,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="16sp"
+        android:backgroundTint="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
@@ -121,11 +143,13 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Course Description:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ListView
         android:id="@+id/pre_course_list"
@@ -139,8 +163,10 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Pre-requisite Courses:"
+        android:textColor="#FFF7FA"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -149,9 +175,10 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="172dp"
         android:text="Enter Course Code:"
+        android:textColor="#FFF7FA"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -162,6 +189,7 @@
         android:ems="6"
         android:inputType="textPersonName"
         android:textSize="14sp"
+        android:backgroundTint="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -172,6 +200,9 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:text="Add"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/pink"
         android:textAllCaps="false"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/edit_pre_text"
@@ -179,18 +210,23 @@
 
     <CheckBox
         android:id="@+id/edit_fall_check"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:checked="false"
         android:text="Fall"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:layout_editor_absoluteX="16dp" />
+        android:textColor="#FFF7FA"
+        app:layout_constraintEnd_toStartOf="@+id/edit_winter_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <CheckBox
         android:id="@+id/edit_visible_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="Visible"
+        android:textColor="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
@@ -199,8 +235,13 @@
         android:id="@+id/edit_save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Save Changes"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_visible_check" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
