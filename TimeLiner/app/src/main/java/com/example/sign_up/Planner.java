@@ -111,8 +111,17 @@ public class Planner {
             ArrayList<Integer> lis = new ArrayList<Integer>();
             for(int j = 0; j<course.preRequisiteCourses.size(); j++){
                 Course c = new Course();
-                //the following line does not work:
-                //c.getFromDatabase(course.preRequisiteCourses.get(i), myCallback);
+                c.getFromDatabase(course.preRequisiteCourses.get(i), new Course.MyCallback() {
+                    @Override
+                    public void onCallback(Course course_callback) {
+                        c.setCourseName(course_callback.getCourseName());
+                        c.setCourseCode(course_callback.getCourseCode());
+                        c.setCourseDescription(course_callback.getCourseDescription());
+                        c.setSessionOffered(course_callback.getSessionOffered());
+                        c.setPreRequisiteCourses(course_callback.getPreRequisiteCourses());
+                        c.setVisible(course_callback.isVisible());
+                    }
+                });
                 lis.addAll(this.addAllCoursePlanner(c, i, sem));
             }
             int year = findFurthestSession(lis).get(0);
