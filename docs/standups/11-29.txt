@@ -1,0 +1,62 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Completed "view courses", "edit course" for admin and tested with firebase
+	- Completed the major part of "edit taken courses" for students
+	- refactored "view taken courses"
+
+What are you planning on doing today?
+	- Complete and test "edit taken courses"
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Updated login activity for admin
+
+What are you planning on doing today?
+	- Refactor login
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Updated adm_edit_page and planner page
+
+What are you planning on doing today?
+	- Learn login page code and write test for it
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Complete planner read from database
+
+What are you planning on doing today?
+	- Implement to activity
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Reviewed the changes made by other team members
+	- Answered questions from other team members
+
+What are you planning on doing today?
+	- Software testing
+	- Fix flaws in the code
+
+Any impediments or stumbling blocks?
+	- None
