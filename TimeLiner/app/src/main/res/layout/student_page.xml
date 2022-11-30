@@ -8,11 +8,24 @@
     android:background="#77B85F80">
 
 
+    <Button
+        android:id="@+id/taken_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/courses_taken_page_add"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
+        app:layout_constraintEnd_toStartOf="@+id/taken_delete_button"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+
     <TextView
         android:id="@+id/course_taken_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/course_taken_title"
         android:textColor="#FFF7FA"
@@ -25,9 +38,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="64dp"
         android:background="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,14 +59,25 @@
         app:layout_constraintTop_toBottomOf="@+id/course_taken_view" />
 
     <Button
+        android:id="@+id/taken_delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
         android:fontFamily="sans-serif-black"
-        android:text="@string/courses_taken_page_add"
+        android:text="Delete"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/pink"
         app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
         app:layout_constraintEnd_toEndOf="@+id/course_taken_view" />
+
+    <EditText
+        android:id="@+id/taken_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
+        app:layout_constraintStart_toStartOf="@+id/course_taken_view"
+        app:layout_constraintTop_toBottomOf="@+id/course_taken_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

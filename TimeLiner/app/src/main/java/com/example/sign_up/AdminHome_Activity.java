@@ -31,13 +31,14 @@ public class AdminHome_Activity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-        // test: show CSCB07
-        myRef.child("DATABASE").child("COURSES").child("CSCB07").addValueEventListener(new ValueEventListener() {
+        // show all courses
+        myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Course_List.clear();
-                Course_List.add(snapshot.getValue(Course.class));
-
+                for (DataSnapshot key : snapshot.getChildren()) {
+                    Course_List.add(key.getValue(Course.class));
+                }
                 ArrayAdapter<Course> itemsAdapter = new ArrayAdapter<Course>(AdminHome_Activity.this,
                         android.R.layout.simple_list_item_1, Course_List);
                 ListView Course_Listview = (ListView) findViewById(R.id.all_course_list);
@@ -49,28 +50,6 @@ public class AdminHome_Activity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-        // show all courses, haven't been tested
-        // requires all data in COURSES fits the form of class Course
-        /*
-        myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Course_List.clear();
-                for (DataSnapshot key : snapshot.getChildren()) {
-                    Course_List.add(key.getValue(Course.class));
-                }
-                ArrayAdapter<Course> itemsAdapter = new ArrayAdapter<Course>(CoursesAdmin_Activity.this,
-                        android.R.layout.simple_list_item_1, Course_List);
-                ListView Course_Listview = (ListView) findViewById(R.id.course_admin_view);
-                Course_Listview.setAdapter(itemsAdapter);
-                Log.d("CourseList", Course_List.toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });*/
 
         // go to edit page for course selected
         ListView Course_Listview = (ListView) findViewById(R.id.all_course_list);

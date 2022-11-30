@@ -137,7 +137,7 @@ public class AdminEdit_Activity extends AppCompatActivity {
                                     if (!course.courseCode.equals(String.valueOf(Code_EditText.getText()))){
                                         course.setVisible(false);
                                         Log.d("Course Disabled", course.toString());
-                                        //course.sendToDatabase();
+                                        course.sendToDatabase();
                                         course.setCourseCode(String.valueOf(Code_EditText.getText()));
                                     }
                                     course.setCourseName(String.valueOf(Name_EditText.getText()));
@@ -150,7 +150,7 @@ public class AdminEdit_Activity extends AppCompatActivity {
                                     Log.d("After Edit",course.toString());
                                     Log.d("After Edit", course.courseDescription);
                                     Log.d("After Edit", String.valueOf(course.visible));
-                                    // course.sendToDatabase();
+                                    course.sendToDatabase();
                                     Toast.makeText(AdminEdit_Activity.this, "Changes Applied",
                                             Toast.LENGTH_SHORT).show();
                                     AdminEdit_Activity.this.finish();
