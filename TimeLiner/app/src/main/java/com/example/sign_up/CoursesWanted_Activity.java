@@ -35,6 +35,7 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         // Get studentID from previous activity
         String studentID = getIntent().getStringExtra("studentID");
         ArrayList<String> Keys_List = new ArrayList<String>();
+        ArrayList<String> Taken = new ArrayList<String>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -74,6 +75,9 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                             Keys_List.add(key.getKey());
                             Log.d("Key Added", Keys_List.toString());
                         }
+                        
+                        // Get the list of taken courses
+
                         showCourse(myRef, Keys_List, studentID);
 
                         AddWish_Button.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +158,14 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }
+
+        // Check if course exists in taken courses
+        if (taken.contains(course)) {
+            Toast.makeText(CoursesWanted_Activity.this, "Course already taken",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
         database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
