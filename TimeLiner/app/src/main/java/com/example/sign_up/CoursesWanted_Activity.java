@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,7 +32,8 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wish_course_page);
 
-        String studentID = "test"; // set id for test
+        // Get studentID from previous activity
+        String studentID = getIntent().getStringExtra("studentID");
         ArrayList<String> Keys_List = new ArrayList<String>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,6 +43,27 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         Button DeleteWish_Button = findViewById(R.id.wishlist_delete);
         Button Back_Button = findViewById(R.id.backto_courses_taken);
         EditText Wish_EditText = findViewById(R.id.wishlist_edit_text);
+        Button Goto_Planner = findViewById(R.id.generate_planner);
+
+        // Goto course_wanted activity when button goto_courses_wanted is clicked
+        Back_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CoursesWanted_Activity.this, CoursesTaken_Activity.class);
+                intent.putExtra("studentID", studentID);
+                startActivity(intent);
+            }
+        });
+
+        // Goto planner activity when button goto_planner is clicked
+        Goto_Planner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CoursesWanted_Activity.this, Planner_Activity.class);
+                intent.putExtra("studentID", studentID);
+                startActivity(intent);
+            }
+        });
 
         myRef.child("DATABASE").child("STUDENTS").child(studentID).child("course_want")
                 .addValueEventListener(new ValueEventListener() {
@@ -84,24 +107,23 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                 });
     }
 
-    private void showCourse(DatabaseReference database, ArrayList<String> keys, String id){
+    private void showCourse(DatabaseReference database, ArrayList<String> keys, String id) {
         database.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<String> CourseWanted_List = new ArrayList<String>();
-                for (DataSnapshot key: snapshot.getChildren()) {
+                for (DataSnapshot key : snapshot.getChildren()) {
                     if (keys.contains(key.getKey())) {
-                        if (!(boolean)key.child("visible").getValue()){
-                            AlertDialog.Builder dialog =
-                                    new AlertDialog.Builder(CoursesWanted_Activity.this);
+                        if (!(boolean) key.child("visible").getValue()) {
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(CoursesWanted_Activity.this);
                             dialog.setTitle("Notice: Course Cancelled");
                             dialog.setMessage(key.getKey() + " has been cancelled.");
                             dialog.setCancelable(false);
                             dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    //keys.remove(key.getKey());
-                                    //Log.d("Dialog Clicked", keys.toString());
+                                    // keys.remove(key.getKey());
+                                    // Log.d("Dialog Clicked", keys.toString());
                                     database.child("DATABASE").child("STUDENTS").child(id)
                                             .child("course_want").child(key.getKey()).removeValue();
                                 }
@@ -119,14 +141,15 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                 CourseWanted_Listview.setAdapter(itemsAdapter);
                 Log.d("CourseList", CourseWanted_Listview.toString());
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
     }
 
-    private void addCourse(DatabaseReference database, String course, String id, ArrayList<String> keys){
-        if (keys.contains(course)){
+    private void addCourse(DatabaseReference database, String course, String id, ArrayList<String> keys) {
+        if (keys.contains(course)) {
             Toast.makeText(CoursesWanted_Activity.this, "Course already added",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -144,13 +167,13 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                 } else {
                     Course toCheck = task.getResult().child("DATABASE").child("COURSES")
                             .child(course).getValue(Course.class);
-                    if (!toCheck.visible){
+                    if (!toCheck.visible) {
                         Toast.makeText(CoursesWanted_Activity.this,
                                 "Course " + course + " does not exist", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    //keys.add(course);
-                    //Log.d("Course Added", keys.toString());
+                    // keys.add(course);
+                    // Log.d("Course Added", keys.toString());
                     database.child("DATABASE").child("STUDENTS").child(id).child("course_want")
                             .child(course).setValue(course);
                     Toast.makeText(CoursesWanted_Activity.this, "Add course successful",
@@ -160,14 +183,13 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         });
     }
 
-    private void deleteCourse(DatabaseReference database, String course, String id, ArrayList<String> keys){
-        if (!keys.contains(course)){
+    private void deleteCourse(DatabaseReference database, String course, String id, ArrayList<String> keys) {
+        if (!keys.contains(course)) {
             Toast.makeText(CoursesWanted_Activity.this, "Course haven't been added",
                     Toast.LENGTH_SHORT).show();
-        }
-        else{
-            //keys.remove(course);
-            //Log.d("Course Removed", keys.toString());
+        } else {
+            // keys.remove(course);
+            // Log.d("Course Removed", keys.toString());
             database.child("DATABASE").child("STUDENTS").child(id).child("course_want")
                     .child(course).removeValue();
             Toast.makeText(CoursesWanted_Activity.this, "Remove course successful",

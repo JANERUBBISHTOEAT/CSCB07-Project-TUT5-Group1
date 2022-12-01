@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,6 +45,17 @@ public class CoursesTaken_Activity extends AppCompatActivity {
         Button AddTaken_Button = findViewById(R.id.taken_add_button);
         Button DeleteTaken_Button = findViewById(R.id.taken_delete_button);
         EditText Taken_EditText = findViewById(R.id.taken_edit_text);
+        Button Goto_Wanted = findViewById(R.id.goto_courses_wanted);
+
+        // Goto course_wanted activity when button goto_courses_wanted is clicked
+        Goto_Wanted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CoursesTaken_Activity.this, CoursesWanted_Activity.class);
+                intent.putExtra("studentID", studentID);
+                startActivity(intent);
+            }
+        });
 
         myRef.child("DATABASE").child("STUDENTS").child(studentID).child("course_taken")
                 .addValueEventListener(new ValueEventListener() {

@@ -62,6 +62,11 @@ public class AdminEdit_Activity extends AppCompatActivity {
                 Button Add_Button = findViewById(R.id.edit_add_button);
                 Button Delete_Button = findViewById(R.id.edit_delete_button);
                 Button Save_Button = findViewById(R.id.edit_save_button);
+                
+                // To meet the requirement:
+                // As an admin, I want to view the list of all courses and edit or
+                // *delete* any course in the list so that I can keep the course information up to date.
+                Button Delete_This = findViewById(R.id.edit_delete_this_button);
 
                 ArrayList<String> Pre_List = new ArrayList<String>(course.preRequisiteCourses);
 
@@ -75,6 +80,21 @@ public class AdminEdit_Activity extends AppCompatActivity {
                 Winter_CheckBox.setChecked(course.sessionOffered.winter);
                 Summer_CheckBox.setChecked(course.sessionOffered.summer);
                 Visible_CheckBox.setChecked(course.visible);
+
+                Delete_This.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Record the course code
+                        String courseCode = course.courseCode;
+                        // Delete the course from the database
+                        myRef.child("Courses").child(courseCode).removeValue();
+                        // Toast to show the course is deleted
+                        Toast.makeText(AdminEdit_Activity.this, "Course Deleted: " + courseCode, Toast.LENGTH_SHORT).show();
+                        // Go back to the admin page
+                        Intent intent = new Intent(AdminEdit_Activity.this, AdminHome_Activity.class);
+                        startActivity(intent);
+                    }
+                });
 
                 Add_Button.setOnClickListener(new View.OnClickListener() {
                     @Override

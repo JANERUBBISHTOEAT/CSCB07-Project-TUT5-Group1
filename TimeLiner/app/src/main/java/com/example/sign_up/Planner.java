@@ -16,6 +16,18 @@ public class Planner {
     ArrayList<String> courseTaken;
     ArrayList<String> courseWanted;
 
+    // getTimetableList() returns a list of all the courses in the timetable
+    public ArrayList<String> getTimetableList() {
+        ArrayList<String> timetableList = new ArrayList<String>();
+        for (int i = 0; i < timeline.size(); i++) {
+            AcademicYear year = timeline.get(i);
+            timetableList.addAll(year.winter);
+            timetableList.addAll(year.summer);
+            timetableList.addAll(year.fall);
+        }
+        return timetableList;
+    }
+
     //create an empty planner.
     public Planner(){
         timeline = new ArrayList<AcademicYear>();
@@ -202,7 +214,7 @@ public class Planner {
                 }
             });
 
-            this.addAllCoursePlanner(c, 1, 0);
+            this.addAllCoursePlanner(c, 1, sem);
         }
     }
 }
