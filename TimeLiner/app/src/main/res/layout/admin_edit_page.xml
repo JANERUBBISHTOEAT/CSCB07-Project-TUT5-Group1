@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#77B85F80"
+    android:background="@color/pink"
     tools:context=".CourseEdit_Activity">
 
     <TextView
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="Winter"
         android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/edit_summer_check"
         app:layout_constraintStart_toEndOf="@+id/edit_fall_check"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -36,6 +37,7 @@
         android:layout_marginEnd="24dp"
         android:text="Summer"
         android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/edit_winter_check"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -59,7 +61,7 @@
         android:layout_marginStart="4dp"
         android:text="Delete"
         android:textAllCaps="false"
-        android:background="#00FFFFFF"
+        android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/pink"
         android:textSize="10sp"
@@ -99,6 +101,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="@+id/textView3"
@@ -121,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         android:backgroundTint="#FFF7FA"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
@@ -135,6 +139,7 @@
         android:inputType="textPersonName"
         android:textSize="16sp"
         android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
@@ -190,6 +195,7 @@
         android:inputType="textPersonName"
         android:textSize="14sp"
         android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -200,7 +206,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:text="Add"
-        android:background="#00FFFFFF"
+        android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/pink"
         android:textAllCaps="false"
@@ -216,6 +222,7 @@
         android:checked="false"
         android:text="Fall"
         android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/edit_winter_check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -227,6 +234,7 @@
         android:layout_marginStart="16dp"
         android:text="Visible"
         android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView9"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
@@ -237,7 +245,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Save Changes"
-        android:background="#00FFFFFF"
+        android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-black"
         android:textColor="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
