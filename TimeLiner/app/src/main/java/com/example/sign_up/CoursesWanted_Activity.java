@@ -34,8 +34,8 @@ public class CoursesWanted_Activity extends AppCompatActivity {
 
         // Get studentID from previous activity
         String studentID = getIntent().getStringExtra("studentID");
-        ArrayList<String> Keys_List = new ArrayList<String>();
-        ArrayList<String> Taken = new ArrayList<String>();
+        ArrayList<String> Wanted_Keys = new ArrayList<String>();
+        ArrayList<String> Taken_Keys = new ArrayList<String>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
@@ -45,16 +45,6 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         Button Back_Button = findViewById(R.id.backto_courses_taken);
         EditText Wish_EditText = findViewById(R.id.wishlist_edit_text);
         Button Goto_Planner = findViewById(R.id.generate_planner);
-
-        // Goto course_wanted activity when button goto_courses_wanted is clicked
-        Back_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CoursesWanted_Activity.this, CoursesTaken_Activity.class);
-                intent.putExtra("studentID", studentID);
-                startActivity(intent);
-            }
-        });
 
         // Goto planner activity when button goto_planner is clicked
         Goto_Planner.setOnClickListener(new View.OnClickListener() {
@@ -66,25 +56,31 @@ public class CoursesWanted_Activity extends AppCompatActivity {
             }
         });
 
-        myRef.child("DATABASE").child("STUDENTS").child(studentID).child("course_want")
+        myRef.child("DATABASE").child("STUDENTS").child(studentID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Keys_List.clear();
-                        for (DataSnapshot key : snapshot.getChildren()) {
-                            Keys_List.add(key.getKey());
-                            Log.d("Key Added", Keys_List.toString());
-                        }
-                        
-                        // Get the list of taken courses
+                        Taken_Keys.clear();
+                        Wanted_Keys.clear();
 
-                        showCourse(myRef, Keys_List, studentID);
+                        for (DataSnapshot key : snapshot.child("course_want").getChildren()) {
+                            Wanted_Keys.add(key.getKey());
+                            Log.d("Wanted Key Added", Wanted_Keys.toString());
+                        }
+
+                        // Get the list of taken courses
+                        for (DataSnapshot key : snapshot.child("course_taken").getChildren()) {
+                            Taken_Keys.add(key.getKey());
+                            Log.d("Taken Key Added", Taken_Keys.toString());
+                        }
+
+                        showCourse(myRef, Wanted_Keys, studentID);
 
                         AddWish_Button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 String Add_Course = String.valueOf(Wish_EditText.getText()).toUpperCase();
-                                addCourse(myRef, Add_Course, studentID, Keys_List);
+                                addCourse(myRef, Add_Course, studentID, Wanted_Keys, Taken_Keys);
                             }
                         });
 
@@ -92,7 +88,7 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 String Delete_Course = String.valueOf(Wish_EditText.getText()).toUpperCase();
-                                deleteCourse(myRef, Delete_Course, studentID, Keys_List);
+                                deleteCourse(myRef, Delete_Course, studentID, Wanted_Keys);
                             }
                         });
 
@@ -126,8 +122,6 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                             dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    // keys.remove(key.getKey());
-                                    // Log.d("Dialog Clicked", keys.toString());
                                     database.child("DATABASE").child("STUDENTS").child(id)
                                             .child("course_want").child(key.getKey()).removeValue();
                                 }
@@ -152,15 +146,16 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         });
     }
 
-    private void addCourse(DatabaseReference database, String course, String id, ArrayList<String> keys) {
-        if (keys.contains(course)) {
+    private void addCourse(DatabaseReference database, String course, String id,
+                           ArrayList<String> wanted_keys, ArrayList<String> taken_keys) {
+        if (wanted_keys.contains(course)) {
             Toast.makeText(CoursesWanted_Activity.this, "Course already added",
                     Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Check if course exists in taken courses
-        if (taken.contains(course)) {
+        if (taken_keys.contains(course)) {
             Toast.makeText(CoursesWanted_Activity.this, "Course already taken",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -184,8 +179,6 @@ public class CoursesWanted_Activity extends AppCompatActivity {
                                 "Course " + course + " does not exist", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    // keys.add(course);
-                    // Log.d("Course Added", keys.toString());
                     database.child("DATABASE").child("STUDENTS").child(id).child("course_want")
                             .child(course).setValue(course);
                     Toast.makeText(CoursesWanted_Activity.this, "Add course successful",
@@ -200,8 +193,6 @@ public class CoursesWanted_Activity extends AppCompatActivity {
             Toast.makeText(CoursesWanted_Activity.this, "Course haven't been added",
                     Toast.LENGTH_SHORT).show();
         } else {
-            // keys.remove(course);
-            // Log.d("Course Removed", keys.toString());
             database.child("DATABASE").child("STUDENTS").child(id).child("course_want")
                     .child(course).removeValue();
             Toast.makeText(CoursesWanted_Activity.this, "Remove course successful",
