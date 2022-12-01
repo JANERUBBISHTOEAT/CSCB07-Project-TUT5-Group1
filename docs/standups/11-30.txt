@@ -1,0 +1,61 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Completed edit courses taken, course wanted for students
+	- Minor edit on course for admin
+
+What are you planning on doing today?
+	- Make some small modifications and wrap up
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Try to refactor part of login function
+
+What are you planning on doing today?
+	- Finish refactoring login function
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Updated admin_edit_page and wish_course_page
+
+What are you planning on doing today?
+	- Write test for login
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Add checkers for edge cases
+
+What are you planning on doing today?
+	- Debugging and testing
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Imported the picture into the project and made it display on the page
+	- Helped with other parts of the project
+
+What are you planning on doing today?
+	- Merge all the parts together and test
+	- Get all pages connected
+
+Any impediments or stumbling blocks?
+	- None
