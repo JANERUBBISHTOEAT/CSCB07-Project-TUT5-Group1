@@ -130,7 +130,7 @@ public class Login_Activity extends AppCompatActivity {
                         Log.i("Login", "Login Successful");
                         Toast.makeText(Login_Activity.this, "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Login_Activity.this, CoursesTaken_Activity.class));
+                        startActivity(new Intent(Login_Activity.this, AdminHome_Activity.class));
                         finish();
                     } else {
                         Log.e("Login", "Password Wrong!");
@@ -149,7 +149,9 @@ public class Login_Activity extends AppCompatActivity {
                         Log.i("Login", "Login Successful");
                         Toast.makeText(Login_Activity.this, "Login Successful!",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Login_Activity.this, CoursesTaken_Activity.class));
+                        Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
+                        intent.putExtra("studentID", txt_username);
+                        startActivity(intent);
                         finish();
                     } else {
                         Log.e("Login", "Password Wrong!");

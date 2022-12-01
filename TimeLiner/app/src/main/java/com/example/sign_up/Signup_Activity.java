@@ -25,6 +25,8 @@ import java.util.HashMap;
 // import MD5
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+// impoert arraylist
+import java.util.ArrayList;
 
 public class Signup_Activity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener {
@@ -41,7 +43,7 @@ public class Signup_Activity extends AppCompatActivity implements
         spin.setOnItemSelectedListener(this);
 
         // Creating the ArrayAdapter instance having the roles list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,roles);
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, roles);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
@@ -155,18 +157,29 @@ public class Signup_Activity extends AppCompatActivity implements
                     if (role.equals("Student")) { // if the user is a student
                         // Get the value of STUDENT_NUM
                         int id = Integer.parseInt(String.valueOf(task.getResult().child("STUDENT_NUM").getValue()));
+
                         // update the new student into the database
                         user.put("id", id);
                         database.child("DATABASE").child("STUDENTS").child(txt_username).updateChildren(user);
+
                         // Update the STUDENT_NUM
+
                         database.child("STUDENT_NUM").setValue(id + 1);
+                        // Set an empty List for the student's course_taken and course_want
+                        database.child("DATABASE").child("STUDENTS").child(txt_username).child("course_taken")
+                                .setValue(new ArrayList<>());
+                        database.child("DATABASE").child("STUDENTS").child(txt_username).child("course_want")
+                                .setValue(new ArrayList<>());
+
                         Log.d("TAG", "registerStudent: " + user);
                     } else { // if the user is an admin
                         // Get the value of STUDENT_NUM
                         int id = Integer.parseInt(String.valueOf(task.getResult().child("ADMIN_NUM").getValue()));
+
                         // update the new admin into the database
                         user.put("id", id);
                         database.child("DATABASE").child("ADMINS").child(txt_username).updateChildren(user);
+
                         // Update the ADMIN_NUM
                         database.child("ADMIN_NUM").setValue(id + 1);
                         Log.d("TAG", "registerAdmin: " + user);

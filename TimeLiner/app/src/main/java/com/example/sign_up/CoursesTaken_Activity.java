@@ -35,7 +35,7 @@ public class CoursesTaken_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_page);
 
-        String studentID = "student_0"; // set id for test
+        String studentID = getIntent().getStringExtra("studentID");
         ArrayList<String> Keys_List = new ArrayList<String>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
