@@ -118,6 +118,14 @@ public class AdminEdit_Activity extends AppCompatActivity {
                 Save_Button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        String new_code = String.valueOf(Code_EditText.getText());
+                        String new_name = String.valueOf(Name_EditText.getText());
+                        String new_description = String.valueOf(Description_EditText.getText());
+                        if (new_code.isEmpty() || new_name.isEmpty() || new_description.isEmpty()){
+                            Toast.makeText(AdminEdit_Activity.this,
+                                    "Text cannot be empty", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -134,14 +142,14 @@ public class AdminEdit_Activity extends AppCompatActivity {
                                             return;
                                         }
                                     }
-                                    if (!course.courseCode.equals(String.valueOf(Code_EditText.getText()))){
+                                    if (!course.courseCode.equals(new_code)){
                                         course.setVisible(false);
                                         Log.d("Course Disabled", course.toString());
                                         course.sendToDatabase();
-                                        course.setCourseCode(String.valueOf(Code_EditText.getText()));
+                                        course.setCourseCode(new_code);
                                     }
-                                    course.setCourseName(String.valueOf(Name_EditText.getText()));
-                                    course.setCourseDescription(String.valueOf(Description_EditText.getText()));
+                                    course.setCourseName(new_name);
+                                    course.setCourseDescription(new_description);
                                     course.setPreRequisiteCourses(Pre_List);
                                     course.sessionOffered.setFall(Fall_CheckBox.isChecked());
                                     course.sessionOffered.setWinter(Winter_CheckBox.isChecked());
