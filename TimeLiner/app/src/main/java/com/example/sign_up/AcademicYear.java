@@ -33,15 +33,13 @@ public class AcademicYear {
             }
         }
 
-        public ArrayList<String> getWinter() {
-            return winter;
-        }
-
-        public ArrayList<String> getSummer() {
-            return summer;
-        }
-
-        public ArrayList<String> getFall() {
+        public ArrayList<String> getSession(int i){
+            if (i == 0){
+                return winter;
+            }
+            else if (i == 1){
+                return summer;
+            }
             return fall;
         }
 
@@ -69,11 +67,17 @@ public class AcademicYear {
         timeline.get(year).addCourse(courseCode, semester);
     }
 
-    public ArrayList<String> getYear(int year){
-        return timeline.get(year);
+    public Year getYear(int year){
+        return timeline.get(year-1);
     }
 
     public ArrayList<Year> getTimeline() {
         return timeline;
+    }
+
+    public void addAcademicYear(int i){
+        for(int j = 0; j<i; j++) {
+            this.timeline.add(new Year());
+        }
     }
 }
