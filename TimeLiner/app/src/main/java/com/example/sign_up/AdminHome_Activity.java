@@ -37,7 +37,10 @@ public class AdminHome_Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Course_List.clear();
                 for (DataSnapshot key : snapshot.getChildren()) {
-                    Course_List.add(key.getValue(Course.class));
+                    // add course to Course_List if visible
+                    if (key.child("visible").getValue().toString().equals("true")) {
+                        Course_List.add(key.getValue(Course.class));
+                    }
                 }
                 ArrayAdapter<Course> itemsAdapter = new ArrayAdapter<Course>(AdminHome_Activity.this,
                         android.R.layout.simple_list_item_1, Course_List);

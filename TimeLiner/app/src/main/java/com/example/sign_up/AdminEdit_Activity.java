@@ -84,15 +84,13 @@ public class AdminEdit_Activity extends AppCompatActivity {
                 Delete_This.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // Record the course code
-                        String courseCode = course.courseCode;
-                        // Delete the course from the database
-                        myRef.child("Courses").child(courseCode).removeValue();
-                        // Toast to show the course is deleted
-                        Toast.makeText(AdminEdit_Activity.this, "Course Deleted: " + courseCode, Toast.LENGTH_SHORT).show();
-                        // Go back to the admin page
-                        Intent intent = new Intent(AdminEdit_Activity.this, AdminHome_Activity.class);
-                        startActivity(intent);
+                        // Set the course to be invisible
+                        course.setVisible(false);
+                        course.sendToDatabase();
+                        Toast.makeText(AdminEdit_Activity.this, "Course Deleted", Toast.LENGTH_SHORT).show();
+                        
+                        // Break the activity
+                        finish();
                     }
                 });
 
