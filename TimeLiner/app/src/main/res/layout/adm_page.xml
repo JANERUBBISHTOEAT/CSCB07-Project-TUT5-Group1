@@ -9,19 +9,19 @@
 
 
     <TextView
-        android:id="@+id/course_taken_title"
+        android:id="@+id/all_course_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/course_taken_title"
+        android:text="All Courses"
         android:textColor="#FFF7FA"
         android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="@+id/course_taken_view"
+        app:layout_constraintStart_toStartOf="@+id/all_course_list"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/course_taken_view"
+        android:id="@+id/all_course_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -32,18 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_taken_title" />
-
-    <Button
-        android:id="@+id/goto_courses_wanted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/courses_taken_page_next"
-        android:textColor="@color/pink"
-        app:layout_constraintEnd_toEndOf="@+id/course_taken_view"
-        app:layout_constraintTop_toBottomOf="@+id/course_taken_view" />
+        app:layout_constraintTop_toBottomOf="@+id/all_course_title" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,7 +42,7 @@
         android:text="@string/courses_taken_page_add"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/pink"
-        app:layout_constraintBottom_toTopOf="@+id/course_taken_view"
-        app:layout_constraintEnd_toEndOf="@+id/course_taken_view" />
+        app:layout_constraintBottom_toTopOf="@+id/all_course_list"
+        app:layout_constraintEnd_toEndOf="@+id/all_course_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

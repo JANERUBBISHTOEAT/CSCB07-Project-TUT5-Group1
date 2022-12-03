@@ -1,6 +1,6 @@
 # CSCB07 Project
 
-*Last updated: 2022-11-24*
+*Last updated: 2022-12-01*
 
 ## Notice
 
@@ -21,20 +21,20 @@ Always read the [agreement](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-T
   - [ ] [As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-6)
   - [ ] [As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.](https://zheyuan-wei.atlassian.net/browse/CSCB07T5G1-7)
 
-- [ ] [CSCB07T5 Sprint 2](https://zheyuan-wei.atlassian.net/jira/software/projects/CSCB07T5G1/boards/1)
-  - [ ] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
+- [x] [CSCB07T5 Sprint 2](https://zheyuan-wei.atlassian.net/jira/software/projects/CSCB07T5G1/boards/1)
+  - [x] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
   - [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
-  - [ ] As an admin, I want to login to my account so that I can securely manage course information.
-  - [ ] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
+  - [x] As an admin, I want to login to my account so that I can securely manage course information.
+  - [x] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
   - [ ] As an admin, I want to view the list of all courses and edit or delete any course in the list so that I can keep the course information up to date.
 
 ## User Stories
 
 1. [x] As a student, I want to sign up and login to my account so that I can securely access my data.
-2. [ ] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
+2. [x] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
 3. [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
-4. [ ] As an admin, I want to login to my account so that I can securely manage course information.
-5. [ ] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
+4. [x] As an admin, I want to login to my account so that I can securely manage course information.
+5. [x] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
 6. [ ] As an admin, I want to view the list of all courses and edit or delete any course in the list so that I can keep the course information up to date.
 
 ## Project Description

@@ -12,7 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sign_up"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Planner_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CoursesWanted_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AdminEdit_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AdminHome_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Home_Activity"
             android:exported="true">
@@ -26,26 +53,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Signup_Activity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity
-            android:name=".Login_Activity"></activity>
-
-        <activity
-            android:name=".Test_Activity"></activity>
-
-        <activity android:name=".CoursesTaken_Activity"></activity>
-
-
-
+        <activity android:name=".Login_Activity" />
+        <activity android:name=".Test_Activity" />
+        <activity android:name=".CoursesTaken_Activity" />
     </application>
 
 </manifest>

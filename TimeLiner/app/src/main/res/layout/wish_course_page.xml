@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77B85F80">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Wish List"
+        android:textColor="#FFF7FA"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/wishlist_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/wish_course_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/wish_course_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="#FFF7FA"
+        app:layout_constraintBottom_toTopOf="@+id/generate_planner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/wishlist_add"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/courses_taken_page_add"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toTopOf="@+id/wish_course_view"
+        app:layout_constraintEnd_toEndOf="@+id/wish_course_view"
+        app:layout_constraintStart_toEndOf="@+id/wishlist_delete" />
+
+    <Button
+        android:id="@+id/generate_planner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="Generate Planner"
+        android:textColor="@color/pink"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wish_course_view" />
+
+    <Button
+        android:id="@+id/backto_courses_taken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="view courses taken"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/wish_course_view"
+        app:layout_constraintTop_toBottomOf="@+id/generate_planner" />
+
+    <Button
+        android:id="@+id/wishlist_delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="Delete"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toTopOf="@+id/wish_course_view"
+        app:layout_constraintEnd_toStartOf="@+id/wishlist_add"
+        app:layout_constraintStart_toEndOf="@+id/wishlist_edit_text" />
+
+    <EditText
+        android:id="@+id/wishlist_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/pink"
+
+        android:ems="8"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/wish_course_view"
+        app:layout_constraintEnd_toStartOf="@+id/wishlist_delete"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/wish_course_view"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

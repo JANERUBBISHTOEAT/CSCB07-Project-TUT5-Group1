@@ -1,0 +1,69 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Completed back-end and part of front-end of "view all courses" for admin
+	- Started "edit course" for admin
+
+What are you planning on doing today?
+	- Keep working on "edit course" for admin
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Create admin database
+	- Finish Signup function for admin
+
+What are you planning on doing today?
+	- Continue studying for Model-View-Presenter
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- Continue finish UI
+
+Any impediments or stumbling blocks?
+	- Personal Issues
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Partially Planner Class
+	- Partially AcademicYear Class
+
+What are you planning on doing today?
+	- Complete Planner Class and AcademicYear Class
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Finished Courses,java by completing getFromDatabase() method using a custom callback function
+	- Modified toString() method in Courses.java as required by frontend
+	- Implement toString() method in Session.java for the ease of future use
+	- Maintained the Github repository by
+		- Merging the pull request from test branch to main branch after the test
+		- Merging the main branch to test branch after the merge above
+		- Create Discussions and Issues for the future work
+	- Created a Discussion topic on the usage of the my part of the code (Courses.java)
+
+What are you planning on doing today?
+	- All my work is done, so I will be helping my teammates to finish their work
+	- Keep trying to scrape the course data from the UTSC website XD
+
+Any impediments or stumbling blocks?
+	- None

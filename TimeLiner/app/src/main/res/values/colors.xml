@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#B85F80</color>
     <color name="light_pink">#95F6D7E3</color>
-    <color name="lightest_pink">#FFF7FA</color>>
+    <color name="lightest_pink">#FFF7FA</color>
+    <color name="dark_pink">#954764</color>
 </resources>

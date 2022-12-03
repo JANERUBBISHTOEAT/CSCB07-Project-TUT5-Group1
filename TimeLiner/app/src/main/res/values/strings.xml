@@ -26,6 +26,6 @@
 
     <string name="test_view_courses">Goto courses page</string>
     <string name="courses_taken_page_next">Continue to plan →</string>
-    <string name="courses_taken_page_add">Add...</string>
-    <string name="course_taken_title">My Courses</string>
+    <string name="courses_taken_page_add">Add</string>
+    <string name="course_taken_title">Taken Courses</string>
 </resources>

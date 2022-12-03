@@ -1,0 +1,64 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Minor changes on edit courses taken & wanted
+
+What are you planning on doing today?
+	- Assigned work is done, so it depends.
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Improve home page ui
+	- Refactoring part of the login function
+
+What are you planning on doing today?
+	- <What you plan on doing 1...>
+    - <What you plan on doing 2...>
+    - <What you plan on doing 3...>
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- Write test for login
+
+Any impediments or stumbling blocks?
+	- Personal issue
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Major changes on planner data structures
+	- Make most planner methods async compatible
+
+What are you planning on doing today?
+	- Finish TODOs listed in better_planner_test branch.
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Maintain the database and GitHub repo
+	- Build a structure for the planner
+	- Found some issues in the planner & student page, assigned to corresponding people
+
+What are you planning on doing today?
+	- Testing the planner
+
+Any impediments or stumbling blocks?
+	- None

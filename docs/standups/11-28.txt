@@ -1,0 +1,66 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Completed the major part of "edit course" for admin
+
+What are you planning on doing today?
+	- Test admin's "view all courses" and "edit course" with firebase
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- Login for admin
+	- Refactor Login
+
+Any impediments or stumbling blocks?
+	- Have classes whole day.
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Update student page and adm page, roughly design for wishlist page
+
+What are you planning on doing today?
+	- Design for planner page
+	- Study unit test
+
+Any impediments or stumbling blocks?
+	- No internet connection
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Finished planner. (local storage)
+
+What are you planning on doing today?
+	- Finish planner (add interactions with database)
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Handling the Git incident of two accidentally merged branches
+		- Reverted the merge
+		- Reverted the revert
+		- Created a new branch for testing
+	- Help others with questions
+
+What are you planning on doing today?
+	- Keep track of the progress of the project
+	- Help others with their tasks
+	- Improve Course Class
+
+Any impediments or stumbling blocks?
+	- None
