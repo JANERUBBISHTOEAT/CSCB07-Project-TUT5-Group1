@@ -13,13 +13,14 @@ Any impediments or stumbling blocks?
 Name: Xinzi Huang
 
 What have you done since yesterday?
-	- <No Response>
+	- Refactor Login_Activity
+	- Add Sign out function for student and admin page
 
 What are you planning on doing today?
-	- <No Response>
+	- None
 
 Any impediments or stumbling blocks?
-	- <No Response>
+	- All assigned work finished
 
 
 Name: Zhiyu Pan
