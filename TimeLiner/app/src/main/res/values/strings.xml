@@ -11,9 +11,10 @@
     <string name="sign_up">sign up</string>
     <string name="goto_test_button">Goto Test</string>
     <string name="test_database_button">Test Database</string>
-
     <string name="log_in">Logging in</string>
     <string name="do_not_have_account">Don\'t have an account?</string>
+    <string name="all_courses">All Courses</string>
+    <string name="sign_out">Sign out</string>
 
     <string-array name="roles">
         <item>Student</item>

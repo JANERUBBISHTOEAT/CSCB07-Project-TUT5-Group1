@@ -31,27 +31,30 @@ import com.example.sign_up.R;
 // import Log
 import android.util.Log;
 
-public class Login_Activity extends AppCompatActivity {
+public class Login_Activity extends AppCompatActivity implements Login_View {
+
+    private Login_Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
-        // Goto Sign Up Page
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        Button login_btn = findViewById(R.id.Login_Btn);
         Button goto_signup_btn = findViewById(R.id.signup);
+        EditText username = findViewById(R.id.Username_Login);
+        EditText password = findViewById(R.id.Password_Login);
+
+        presenter = new Login_Presenter(this);
+
+        // Goto Sign Up Page
         goto_signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login_Activity.this, Signup_Activity.class));
             }
         });
-
-        // Login Part
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        Button login_btn = findViewById(R.id.Login_Btn);
-        EditText username = findViewById(R.id.Username_Login);
-        EditText password = findViewById(R.id.Password_Login);
 
         // If the user click the login_btn
         login_btn.setOnClickListener(new View.OnClickListener() {
@@ -60,55 +63,32 @@ public class Login_Activity extends AppCompatActivity {
                 String txt_username = username.getText().toString();
                 String txt_password = password.getText().toString();
 
-                // Validate the input
-                if (TextUtils.isEmpty(txt_username)) {
-                    Toast.makeText(Login_Activity.this, "Empty Username!",
-                            Toast.LENGTH_SHORT).show();
-                } else if (txt_password.length() < 8) {
-                    Toast.makeText(Login_Activity.this,
-                            "Password too short! Should be more than 8 characters.",
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    loginStudent(database, txt_username, txt_password);
-                }
+                presenter.loginUser(database, txt_username, txt_password);
             }
         });
     }
 
-    // encrypting the password
-    private String md5(String input) {
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(input.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest) {
-                String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2)
-                    h = "0" + h;
-                hexString.append(h);
-            }
-            return hexString.toString();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
+    @Override
+    public void displayValidName() {
+        Toast.makeText(Login_Activity.this, "Empty Username!",
+                Toast.LENGTH_SHORT).show();
     }
 
-    private void loginStudent(DatabaseReference database, String txt_username, String txt_password) {
+    @Override
+    public void displayValidPassword() {
+        Toast.makeText(Login_Activity.this,
+                "Password too short! Should be more than 8 characters.",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void displayLogin(DatabaseReference database, String txt_username,
+                             String pass_md5, String pass_md5_salt) {
 
         database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> snapshot) {
-
-                // md5 the password based on user's input
-                String pass_md5 = md5(txt_password);
-                String pass_md5_salt = md5(txt_username + pass_md5);
 
                 // Get the data snapshot
                 DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
@@ -165,5 +145,29 @@ public class Login_Activity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public String displayMD5(String input) {
+        try {
+            // Create MD5 Hash
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(input.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            // Create Hex String
+            StringBuilder hexString = new StringBuilder();
+            for (byte aMessageDigest : messageDigest) {
+                String h = Integer.toHexString(0xFF & aMessageDigest);
+                while (h.length() < 2)
+                    h = "0" + h;
+                hexString.append(h);
+            }
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }
