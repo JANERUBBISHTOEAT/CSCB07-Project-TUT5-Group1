@@ -19,7 +19,7 @@ What are you planning on doing today?
 	- <No Response>
 
 Any impediments or stumbling blocks?
-	- None
+	- <No Response>
 
 
 Name: Zhiyu Pan
@@ -37,12 +37,12 @@ Any impediments or stumbling blocks?
 Name: Yibai Wang
 
 What have you done since yesterday?
-	- <What you have done>
+	- <No Response>
 
 What are you planning on doing today?
 	- <No Response>
 Any impediments or stumbling blocks?
-	- None
+	- <No Response>
 
 
 Name: Zheyuan Wei
