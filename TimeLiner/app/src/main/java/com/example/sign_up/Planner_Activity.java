@@ -41,6 +41,7 @@ public class Planner_Activity extends AppCompatActivity {
             }
         });
 
+
         // Get a planned timetable from planner(username, sem)
         Planner planner = new Planner(studentID, 0);
 

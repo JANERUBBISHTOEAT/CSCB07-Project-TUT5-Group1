@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +32,15 @@ public class AdminHome_Activity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
+        Button sign_out_btn = findViewById(R.id.sign_out_adm);
+
+        // Goto Home Page
+        sign_out_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminHome_Activity.this, Home_Activity.class));
+            }
+        });
 
         // show all courses
         myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
@@ -37,7 +48,10 @@ public class AdminHome_Activity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Course_List.clear();
                 for (DataSnapshot key : snapshot.getChildren()) {
-                    Course_List.add(key.getValue(Course.class));
+                    // add course to Course_List if visible
+                    if (key.child("visible").getValue().toString().equals("true")) {
+                        Course_List.add(key.getValue(Course.class));
+                    }
                 }
                 ArrayAdapter<Course> itemsAdapter = new ArrayAdapter<Course>(AdminHome_Activity.this,
                         android.R.layout.simple_list_item_1, Course_List);

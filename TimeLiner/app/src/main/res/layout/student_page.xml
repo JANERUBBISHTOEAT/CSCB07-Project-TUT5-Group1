@@ -81,4 +81,18 @@
         app:layout_constraintStart_toStartOf="@+id/course_taken_view"
         app:layout_constraintTop_toBottomOf="@+id/course_taken_title" />
 
+    <Button
+        android:id="@+id/sign_out_student"
+        android:layout_width="109dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/sign_out"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goto_courses_wanted"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_taken_view"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
