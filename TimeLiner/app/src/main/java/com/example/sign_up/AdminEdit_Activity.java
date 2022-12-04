@@ -98,16 +98,17 @@ public class AdminEdit_Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         String Add_Course = String.valueOf(Pre_EditText.getText()).toUpperCase();
-                        if (Pre_List.contains(Add_Course)){
+                        if (Add_Course.isEmpty()) {
+                            Toast.makeText(AdminEdit_Activity.this, "Empty text",
+                                    Toast.LENGTH_SHORT).show();
+                        } else if (Pre_List.contains(Add_Course)) {
                             Toast.makeText(AdminEdit_Activity.this, "Course already added",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else if(Add_Course.equals(course.courseCode)){
+                        } else if(Add_Course.equals(course.courseCode)) {
                             Toast.makeText(AdminEdit_Activity.this,
                                     "A course cannot be its pre-requisite",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        } else {
                             Pre_List.add(Add_Course);
                             Pre_ListView.setAdapter(PreList_Adapter);
                             Toast.makeText(AdminEdit_Activity.this, "Add course successful",
@@ -120,11 +121,13 @@ public class AdminEdit_Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         String Delete_Course = String.valueOf(Pre_EditText.getText()).toUpperCase();
-                        if (!Pre_List.contains(Delete_Course)){
+                        if (Delete_Course.isEmpty()) {
+                            Toast.makeText(AdminEdit_Activity.this, "Empty text",
+                                    Toast.LENGTH_SHORT).show();
+                        } else if (!Pre_List.contains(Delete_Course)) {
                             Toast.makeText(AdminEdit_Activity.this, "Course haven't been added",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        } else {
                             Pre_List.remove(Delete_Course);
                             Pre_ListView.setAdapter(PreList_Adapter);
                             Toast.makeText(AdminEdit_Activity.this, "Remove course successful",
@@ -136,7 +139,7 @@ public class AdminEdit_Activity extends AppCompatActivity {
                 Save_Button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String new_code = String.valueOf(Code_EditText.getText());
+                        String new_code = String.valueOf(Code_EditText.getText()).toUpperCase();
                         String new_name = String.valueOf(Name_EditText.getText());
                         String new_description = String.valueOf(Description_EditText.getText());
                         if (new_code.isEmpty() || new_name.isEmpty() || new_description.isEmpty()){
@@ -152,14 +155,25 @@ public class AdminEdit_Activity extends AppCompatActivity {
                                     Toast.makeText(AdminEdit_Activity.this, "Error getting data",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    // check if all pre-requisites are in database & visible
                                     for(String code: Pre_List){
-                                        if (!task.getResult().child("DATABASE").child("COURSES").hasChild(code)) {
+                                        if (task.getResult().child("DATABASE").child("COURSES").hasChild(code)){
+                                            Course Pre_Course = task.getResult().child("DATABASE")
+                                                    .child("COURSES").child(code).getValue(Course.class);
+                                            if (!Pre_Course.visible){
+                                                Toast.makeText(AdminEdit_Activity.this,
+                                                        "Course " + code + " does not exist",
+                                                        Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                        } else {
                                             Toast.makeText(AdminEdit_Activity.this,
                                                     "Course " + code + " does not exist",
                                                     Toast.LENGTH_SHORT).show();
                                             return;
                                         }
                                     }
+
                                     if (!course.courseCode.equals(new_code)){
                                         course.setVisible(false);
                                         Log.d("Course Disabled", course.toString());
@@ -175,6 +189,7 @@ public class AdminEdit_Activity extends AppCompatActivity {
                                     course.setVisible(Visible_CheckBox.isChecked());
                                     Log.d("After Edit",course.toString());
                                     Log.d("After Edit", course.courseDescription);
+                                    Log.d("After Edit", course.sessionOffered.toString());
                                     Log.d("After Edit", String.valueOf(course.visible));
                                     course.sendToDatabase();
                                     Toast.makeText(AdminEdit_Activity.this, "Changes Applied",
