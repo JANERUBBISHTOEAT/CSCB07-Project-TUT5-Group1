@@ -75,16 +75,11 @@ public class ExampleUnitTest {
 
     @Test
     public void test_UsernameNotExist() {
-<<<<<<< Updated upstream
-        when(view_WrongName.getUserName()).thenReturn("student_DNE");
-        when(view_WrongName.getUserPassword()).thenReturn("12345678");
-        Login_Presenter presenter = new Login_Presenter(view_WrongName,database_WrongName);
-=======
+
         when(view.getUserName()).thenReturn("student_DNE");// the username do not exist in database
         when(view.getUserPassword()).thenReturn("password");
         when(module.get_status()).thenReturn(2);
         Login_Presenter presenter = new Login_Presenter(view,database,module);
->>>>>>> Stashed changes
         presenter.loginUser();
         verify(view).displayMessage("Username does not exist!");
     }
