@@ -1,9 +1,17 @@
 package com.example.sign_up;
 
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
@@ -21,8 +29,24 @@ import com.google.firebase.database.FirebaseDatabase;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(PowerMockRunner.class)
+@PowerMockRunnerDelegate(JUnit4.class)
+@PrepareForTest({ FirebaseDatabase.class})
 public class ExampleUnitTest {
+
+    @Mock
+    private DatabaseReference mockedDatabaseReference;
+
+    @Before
+    public void before() {
+        mockedDatabaseReference = Mockito.mock(DatabaseReference.class);
+
+        FirebaseDatabase mockedFirebaseDatabase = Mockito.mock(FirebaseDatabase.class);
+        when(mockedFirebaseDatabase.getReference()).thenReturn(mockedDatabaseReference);
+
+        PowerMockito.mockStatic(FirebaseDatabase.class);
+        when(FirebaseDatabase.getInstance()).thenReturn(mockedFirebaseDatabase);
+    }
 
     @Mock
     Login_View view;
@@ -31,8 +55,7 @@ public class ExampleUnitTest {
     DatabaseReference database;
     DatabaseReference database_real;
 
-    @Mock
-    Intent intent;
+
 
     @Test
     public void test_shortPassword(){
@@ -52,9 +75,10 @@ public class ExampleUnitTest {
         verify(view).displayMessage("Empty Username!");
     }
 
+
     @Test
     public void test_UsernameNotExist() {
-        // Get a reference to database
+         //Get a reference to database
         database_real = FirebaseDatabase.getInstance().getReference();
         when(view.getUserName()).thenReturn("student_DNE");
         when(view.getUserPassword()).thenReturn("12345678");
