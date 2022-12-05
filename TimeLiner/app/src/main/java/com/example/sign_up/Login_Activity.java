@@ -64,7 +64,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         goto_signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToPage(new Intent(Login_Activity.this, Signup_Activity.class));
+                finish();
             }
         });
 
