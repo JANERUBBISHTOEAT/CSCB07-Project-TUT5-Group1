@@ -60,6 +60,8 @@ public class ExampleUnitTest {
 
     @Test
     public void test_WrongPassword(){
+        when(view.getUserName()).thenReturn("RightName");
+        when(view.getUserPassword()).thenReturn("WrongPassword");
         when(intent.hasExtra("wrongPassword")).thenReturn(true);
         Login_Presenter presenter = new Login_Presenter(view,database);
         presenter.loginUser();
