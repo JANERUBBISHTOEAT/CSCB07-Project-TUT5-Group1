@@ -39,9 +39,23 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+      
+        // Receive the data from the previous page
+        Intent intent = getIntent();
+        String txt_username = intent.getStringExtra("username");
+        String txt_password = intent.getStringExtra("password");
 
+        // Login Part
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         Button login_btn = findViewById(R.id.Login_Btn);
+        EditText username = findViewById(R.id.Username_Login);
+        EditText password = findViewById(R.id.Password_Login);
+
+        // Fill the username and password
+        username.setText(txt_username);
+        password.setText(txt_password);
+
+        // Goto Sign Up Page
         Button goto_signup_btn = findViewById(R.id.signup);
 
         presenter = new Login_Presenter(this, database);

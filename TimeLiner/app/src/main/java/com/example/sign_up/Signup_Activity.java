@@ -25,8 +25,10 @@ import java.util.HashMap;
 // import MD5
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-// impoert arraylist
+// import arraylist
 import java.util.ArrayList;
+// import AlertDialog
+import android.app.AlertDialog;
 
 public class Signup_Activity extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener {
@@ -45,6 +47,7 @@ public class Signup_Activity extends AppCompatActivity implements
         // Creating the ArrayAdapter instance having the roles list
         ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, roles);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         // Setting the ArrayAdapter data on the Spinner
         spin.setAdapter(aa);
 
@@ -172,22 +175,41 @@ public class Signup_Activity extends AppCompatActivity implements
                                 .setValue(new ArrayList<>());
 
                         Log.d("TAG", "registerStudent: " + user);
-                    } else { // if the user is an admin
+
+                        Toast.makeText(Signup_Activity.this, "Registering user successful!",
+                                Toast.LENGTH_SHORT).show();
+
+                        // Pass the username and password to the login activity
+                        Intent intent = new Intent(Signup_Activity.this, Login_Activity.class);
+                        intent.putExtra("username", txt_username);
+                        intent.putExtra("password", txt_password);
+                        startActivity(intent);
+                    } else {
+                        // if the user is an admin
                         // Get the value of STUDENT_NUM
-                        int id = Integer.parseInt(String.valueOf(task.getResult().child("ADMIN_NUM").getValue()));
 
-                        // update the new admin into the database
-                        user.put("id", id);
-                        database.child("DATABASE").child("ADMINS").child(txt_username).updateChildren(user);
+                        // Updated: Admins cannot be registered by users
+                        Toast.makeText(Signup_Activity.this,
+                                "We do have this part of code, \n yet Admins cannot be registered by users as discussed on the Piazza.",
+                                Toast.LENGTH_LONG).show();
+                        // Create a message box
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Signup_Activity.this);
+                        builder.setTitle("Admin Registration");
+                        builder.setMessage("We do have this part of code, \n yet Admins cannot be registered by users as discussed on the Piazza.");
 
-                        // Update the ADMIN_NUM
-                        database.child("ADMIN_NUM").setValue(id + 1);
-                        Log.d("TAG", "registerAdmin: " + user);
+                        builder.show();
+
+
+                        // int id = Integer.parseInt(String.valueOf(task.getResult().child("ADMIN_NUM").getValue()));
+
+                        // // update the new admin into the database
+                        // user.put("id", id);
+                        // database.child("DATABASE").child("ADMINS").child(txt_username).updateChildren(user);
+
+                        // // Update the ADMIN_NUM
+                        // database.child("ADMIN_NUM").setValue(id + 1);
+                        // Log.d("TAG", "registerAdmin: " + user);
                     }
-
-                    Toast.makeText(Signup_Activity.this, "Registering user successful!",
-                            Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Signup_Activity.this, Login_Activity.class));
                 }
             }
         });

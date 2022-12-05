@@ -39,7 +39,7 @@ public class AdminHome_Activity extends AppCompatActivity {
         sign_out_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminHome_Activity.this, Home_Activity.class));
+                finish();
             }
         });
 
