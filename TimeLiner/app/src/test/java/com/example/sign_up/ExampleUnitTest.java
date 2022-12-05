@@ -19,7 +19,7 @@ public class ExampleUnitTest {
     Login_View view;
 
     @Test
-    public void testPresenter(){
+    public void testShortpassword(){
 
     }
 }
