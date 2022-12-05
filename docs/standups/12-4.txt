@@ -1,0 +1,62 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- Helped building Admin Add page
+
+What are you planning on doing today?
+	- Help other team members
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Finished refactoring the login_activity
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- Finished Testing for login_activity
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- Finished PlannerActivity
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- None
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Maintained the project by merging pull requests and resolving conflicts
+	- Improved some logic of the page jump
+	- Improved the UI of the app
+	- Helped Testing
+	- Helped other team members with their questions
+
+What are you planning on doing today?
+	- Finalizing the project and deliver the final version to the Instructor and TA
+
+Any impediments or stumbling blocks?
+	- None
