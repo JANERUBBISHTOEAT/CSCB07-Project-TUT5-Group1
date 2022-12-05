@@ -27,6 +27,11 @@
 
     <string name="test_view_courses">Goto courses page</string>
     <string name="courses_taken_page_next">Continue to plan →</string>
-    <string name="courses_taken_page_add">Add</string>
+    <string name="courses_taken_page_add">Add ✊</string>
     <string name="course_taken_title">Taken Courses</string>
+    <string name="view_courses_taken">← view courses taken</string>
+    <string name="generate_planner">Generate Planner🎉</string>
+    <string name="course_wanted">Course Wish List</string>
+    <string name="log_out">Log Out 🏃‍</string>
+    <string name="delete">Delete 🏳</string>
 </resources>

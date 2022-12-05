@@ -47,13 +47,14 @@ public class CoursesTaken_Activity extends AppCompatActivity {
         Button DeleteTaken_Button = findViewById(R.id.taken_delete_button);
         EditText Taken_EditText = findViewById(R.id.taken_edit_text);
         Button Goto_Wanted = findViewById(R.id.goto_courses_wanted);
-        Button sign_out_btn = findViewById(R.id.sign_out_student);
-
-        // Goto Home Page
-        sign_out_btn.setOnClickListener(new View.OnClickListener() {
+        Button Log_Out = findViewById(R.id.log_out);
+        
+        // Log out when button log_out is clicked
+        Log_Out.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CoursesTaken_Activity.this, Home_Activity.class));
+            public void onClick(View view) {
+                // Back to login activity
+                finish();
             }
         });
 
