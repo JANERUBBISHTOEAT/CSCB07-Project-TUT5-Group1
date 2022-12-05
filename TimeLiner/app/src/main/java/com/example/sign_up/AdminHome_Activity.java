@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +32,16 @@ public class AdminHome_Activity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
+        Button sign_out_btn = findViewById(R.id.sign_out_adm);
+        Button add_course_btn = findViewById(R.id.admin_add_button);
+
+        // Goto Home Page
+        sign_out_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminHome_Activity.this, Home_Activity.class));
+            }
+        });
 
         // show all courses
         myRef.child("DATABASE").child("COURSES").addValueEventListener(new ValueEventListener() {
@@ -64,6 +76,14 @@ public class AdminHome_Activity extends AppCompatActivity {
                 // pass the selected course's code to edit page
                 intent.putExtra("Course_Code", course.getCourseCode());
                 startActivity(intent);
+            }
+        });
+
+        // go to add new course page
+        add_course_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AdminHome_Activity.this, AdminAdd_Activity.class));
             }
         });
     }

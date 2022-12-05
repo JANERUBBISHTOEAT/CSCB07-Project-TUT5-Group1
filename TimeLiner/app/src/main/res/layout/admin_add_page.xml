@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink"
+    tools:context=".AdminAdd_Activity">
+
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Add New Course"
+        android:textColor="#FFF7FA"
+        android:textSize="32sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Course Code:"
+        android:textColor="#FFF7FA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <EditText
+        android:id="@+id/new_code_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.166"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Course Name:"
+        android:textColor="#FFF7FA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <EditText
+        android:id="@+id/new_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/white"
+        android:inputType="textPersonName"
+        android:backgroundTint="#FFF7FA"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Course Description:"
+        android:textColor="#FFF7FA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/new_descript_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Pre-requisite Courses:"
+        android:textColor="#FFF7FA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <ListView
+        android:id="@+id/new_pre_course_list"
+        android:layout_width="345dp"
+        android:layout_height="161dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="172dp"
+        android:text="Enter Course Code:"
+        android:textColor="#FFF7FA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/new_pre_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="6"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:backgroundTint="#FFF7FA"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/new_add_button"
+        android:layout_width="66dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:text="Add"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/pink"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/new_pre_text"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <Button
+        android:id="@+id/new_delete_button"
+        android:layout_width="66dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="4dp"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/pink"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/new_add_button"
+        app:layout_constraintTop_toTopOf="@+id/new_add_button" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:text="Sessions Offered:"
+        android:textColor="#FFF7FA"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <CheckBox
+        android:id="@+id/new_fall_check"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:checked="false"
+        android:text="Fall"
+        android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/new_winter_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <CheckBox
+        android:id="@+id/new_winter_check"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Winter"
+        android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/new_summer_check"
+        app:layout_constraintStart_toEndOf="@+id/new_fall_check"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <CheckBox
+        android:id="@+id/new_summer_check"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="Summer"
+        android:textColor="#FFF7FA"
+        android:buttonTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/new_winter_check"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/new_save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:text="Save Changes"
+        android:textColor="@color/pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_winter_check" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

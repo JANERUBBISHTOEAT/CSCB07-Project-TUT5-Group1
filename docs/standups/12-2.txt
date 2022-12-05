@@ -1,0 +1,61 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- All assigned tasks are done.
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- <No Response>
+
+What are you planning on doing today?
+	- <No Response>
+
+Any impediments or stumbling blocks?
+	- <No Response>
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- Write test for login
+
+Any impediments or stumbling blocks?
+	- Personal issue
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- <No Response>
+
+What are you planning on doing today?
+	- <No Response>
+Any impediments or stumbling blocks?
+	- <No Response>
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Review the active branch, and merge it to main and test
+	- Fixed other's merge issue by creating a new branch
+		(revert would not work since at least one commit submits all expired files)
+
+What are you planning on doing today?
+	- Keep track of the active branch
+	- Fix the issue of the active branch
+	- Help other members to fix their merge issue
+
+Any impediments or stumbling blocks?
+	- Scrum members are responding slowly.
