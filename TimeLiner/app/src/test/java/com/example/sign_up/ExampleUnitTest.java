@@ -25,16 +25,15 @@ public class ExampleUnitTest {
     DatabaseReference database;
 
     @Test
-<<<<<<< Updated upstream
-    public void testShortpassword(){
-=======
+
+
     public void test_Password(){
         when(view.getUserPassword()).thenReturn("123");
         Login_Presenter presenter = new Login_Presenter(view,database);
         presenter.loginUser();
         verify(view).displayMessage("Password too short! Should be more than 8 characters.");
     }
->>>>>>> Stashed changes
+
 
     @Test
     public void test_EmptyUsername(){
