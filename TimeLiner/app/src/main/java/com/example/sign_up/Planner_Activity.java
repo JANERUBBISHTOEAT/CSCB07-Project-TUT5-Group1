@@ -45,9 +45,8 @@ public class Planner_Activity extends AppCompatActivity {
         Goto_Wish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Planner_Activity.this, CoursesWanted_Activity.class);
-                intent.putExtra("studentID", studentID);
-                startActivity(intent);
+                // Back to course_wanted activity
+                finish();
             }
         });
 
