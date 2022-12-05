@@ -67,7 +67,7 @@ public class Planner {
     public ArrayList<String> getTimetableList(int year) {
         ArrayList<String> j = new ArrayList<>();
         for (int i = 0; i < planner.timeline.size(); i++) {
-            String str = year + " Winter";
+            String str = year + " Winter       ";
             if (!(planner.timeline.get(i).winter.size() == 0)) {
                 for (int k = 0; k < planner.timeline.get(i).winter.size(); k++) {
                     str += planner.timeline.get(i).winter;
@@ -77,7 +77,7 @@ public class Planner {
             }
             j.add(str);
 
-            str = year + " Summer";
+            str = year + " Summer   ";
             if (!(planner.timeline.get(i).summer.size() == 0)) {
                 for (int k = 0; k < planner.timeline.get(i).summer.size(); k++) {
                     str = str + planner.timeline.get(i).summer;
@@ -87,7 +87,7 @@ public class Planner {
             }
             j.add(str);
 
-            str = year + " Fall";
+            str = year + " Fall            ";
             if (!(planner.timeline.get(i).fall.size() == 0)) {
                 for (int k = 0; k < planner.timeline.get(i).fall.size(); k++) {
                     str += planner.timeline.get(i).fall;
