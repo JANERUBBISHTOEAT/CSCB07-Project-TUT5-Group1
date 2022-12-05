@@ -11,9 +11,10 @@
     <string name="sign_up">sign up</string>
     <string name="goto_test_button">Goto Test</string>
     <string name="test_database_button">Test Database</string>
-
     <string name="log_in">Logging in</string>
     <string name="do_not_have_account">Don\'t have an account?</string>
+    <string name="all_courses">All Courses</string>
+    <string name="sign_out">Sign out</string>
 
     <string-array name="roles">
         <item>Student</item>
@@ -26,6 +27,11 @@
 
     <string name="test_view_courses">Goto courses page</string>
     <string name="courses_taken_page_next">Continue to plan →</string>
-    <string name="courses_taken_page_add">Add</string>
+    <string name="courses_taken_page_add">Add ✊</string>
     <string name="course_taken_title">Taken Courses</string>
+    <string name="view_courses_taken">← view courses taken</string>
+    <string name="generate_planner">Generate Planner🎉</string>
+    <string name="course_wanted">Course Wish List</string>
+    <string name="log_out">Log Out 🏃‍</string>
+    <string name="delete">Delete 🏳</string>
 </resources>

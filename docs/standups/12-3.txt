@@ -1,0 +1,69 @@
+Name: Qihui Li
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- All assigned tasks are done.
+
+
+Name: Xinzi Huang
+
+What have you done since yesterday?
+	- Refactor Login_Activity
+	- Add Sign out function for student and admin page
+
+What are you planning on doing today?
+	- None
+
+Any impediments or stumbling blocks?
+	- All assigned work finished
+
+
+Name: Zhiyu Pan
+
+What have you done since yesterday?
+	- None
+
+What are you planning on doing today?
+	- Write test for login
+
+Any impediments or stumbling blocks?
+	- Personal issue
+
+
+Name: Yibai Wang
+
+What have you done since yesterday?
+	- <No Response>
+
+What are you planning on doing today?
+	- <No Response>
+
+Any impediments or stumbling blocks?
+	- <No Response>
+
+
+Name: Zheyuan Wei
+
+What have you done since yesterday?
+	- Reviewed all active branches and merged them into master branch and test branch
+	- Fixed all conflicts in the merge process
+	- Protect test branch by
+		creating a new branch from test branch and set the protection rules.
+
+What are you planning on doing today?
+	- Keep tracking the active branches and merge them into master branch and test branch
+	- Write the document corresponding to the scrum members' work,
+		and updated it every time when the scrum members has gained new progress,
+		since there are still 3 unfinished tasks in the sprint backlog, and the
+		remaining time is less than 2 days.
+
+Any impediments or stumbling blocks?
+	- Scrum members' work is not enough to finish all the tasks in the sprint backlog.
+	- The test branch is not protected, and merge conflicts was wrongly resolved many times
+		by the scrum members, which caused the test branch to be broken many times.
+	- Scrum members are responding to the issues in the test branch very slowly.

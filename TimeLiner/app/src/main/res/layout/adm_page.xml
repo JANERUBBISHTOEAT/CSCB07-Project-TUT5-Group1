@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-black"
-        android:text="All Courses"
-        android:textColor="#FFF7FA"
+        android:text="@string/all_courses"
+        android:textColor="@color/off_white"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="@+id/all_course_list"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,13 +28,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="74dp"
-        android:background="#FFF7FA"
+        android:background="@color/off_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/all_course_title" />
 
     <Button
+        android:id="@+id/admin_add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -44,5 +45,20 @@
         android:textColor="@color/pink"
         app:layout_constraintBottom_toTopOf="@+id/all_course_list"
         app:layout_constraintEnd_toEndOf="@+id/all_course_list" />
+
+    <Button
+        android:id="@+id/sign_out_adm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/sign_out"
+        android:textColor="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/all_course_list"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="668dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Sign_up"
         tools:targetApi="31">
         <activity
+            android:name=".AdminAdd_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Planner_Activity"
             android:exported="false">
             <meta-data
