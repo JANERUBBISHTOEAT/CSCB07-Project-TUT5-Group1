@@ -39,7 +39,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-      
+
         // Receive the data from the previous page
         Intent intent = getIntent();
         String txt_username = intent.getStringExtra("username");
@@ -102,7 +102,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
 
     @Override
     public Intent displayLogin(Task<DataSnapshot> snapshot, String username,
-                             String pass_md5, String pass_md5_salt) {
+            String pass_md5, String pass_md5_salt) {
 
         // Get the data snapshot
         DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
@@ -123,7 +123,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
                 intent.putExtra("wrongPassword", true);
             }
             return intent;
-        } else if (students.hasChild(username)) {   // if the user is a student
+        } else if (students.hasChild(username)) { // if the user is a student
 
             // Get the correct password from the database
             String pass_web = students.child(username).child("pass_hash").getValue().toString();
