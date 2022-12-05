@@ -1,6 +1,6 @@
 # CSCB07 Project
 
-*Last updated: 2022-12-01*
+*Last updated: 2022-12-05*
 
 ## Notice
 
@@ -23,7 +23,7 @@ Always read the [agreement](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-T
 
 - [x] [CSCB07T5 Sprint 2](https://zheyuan-wei.atlassian.net/jira/software/projects/CSCB07T5G1/boards/1)
   - [x] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
-  - [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
+  - [x] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
   - [x] As an admin, I want to login to my account so that I can securely manage course information.
   - [x] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
   - [x] As an admin, I want to view the list of all courses and edit or delete any course in the list so that I can keep the course information up to date.
@@ -32,7 +32,7 @@ Always read the [agreement](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-T
 
 1. [x] As a student, I want to sign up and login to my account so that I can securely access my data.
 2. [x] As a student, I want to view the list of courses I have taken and add to this list so that I can keep track of all the courses I have taken.
-3. [ ] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
+3. [x] As a student, I want to generate a course timeline by providing courses I want to take so that I can plan my education accordingly.
 4. [x] As an admin, I want to login to my account so that I can securely manage course information.
 5. [x] As an admin, I want to add a course and define its name, course code, offering sessions, and prerequisites so that a student’s timeline could be generated correctly.
 6. [x] As an admin, I want to view the list of all courses and edit or delete any course in the list so that I can keep the course information up to date.
