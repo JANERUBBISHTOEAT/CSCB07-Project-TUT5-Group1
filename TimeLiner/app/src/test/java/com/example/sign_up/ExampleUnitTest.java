@@ -25,8 +25,6 @@ public class ExampleUnitTest {
     DatabaseReference database;
 
     @Test
-
-
     public void test_Password(){
         when(view.getUserPassword()).thenReturn("123");
         Login_Presenter presenter = new Login_Presenter(view,database);
