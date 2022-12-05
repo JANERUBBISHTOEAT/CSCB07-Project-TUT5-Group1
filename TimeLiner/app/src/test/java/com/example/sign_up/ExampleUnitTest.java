@@ -6,29 +6,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
-import org.powermock.api.mockito.PowerMockito;
+
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.any;
 
-import android.content.Intent;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,29 +30,17 @@ import com.google.firebase.database.FirebaseDatabase;
 @PrepareForTest({ FirebaseDatabase.class})
 public class ExampleUnitTest {
 
-    @Mock
-    private DatabaseReference mockedDatabaseReference;
 
-    @Before
-    public void before() {
-        mockedDatabaseReference = Mockito.mock(DatabaseReference.class);
-
-        FirebaseDatabase mockedFirebaseDatabase = Mockito.mock(FirebaseDatabase.class);
-        when(mockedFirebaseDatabase.getReference()).thenReturn(mockedDatabaseReference);
-
-        PowerMockito.mockStatic(FirebaseDatabase.class);
-        when(FirebaseDatabase.getInstance()).thenReturn(mockedFirebaseDatabase);
-    }
 
     @Mock
     Login_View view;
-    Login_View view_WrongName;
 
     @Mock
     DatabaseReference database;
-    DatabaseReference database_WrongName;
-    DatabaseReference database_wrongPassword;
-    DatabaseReference database_fail;
+
+
+    @Mock
+    Login_Module module;
 
 
 
@@ -73,7 +48,7 @@ public class ExampleUnitTest {
     public void test_shortPassword(){
         when(view.getUserName()).thenReturn("student");
         when(view.getUserPassword()).thenReturn("123456");
-        Login_Presenter presenter = new Login_Presenter(view,database);
+        Login_Presenter presenter = new Login_Presenter(view,database,module);
         presenter.loginUser();
         verify(view).displayMessage("Password too short! Should be more than 8 characters.");
     }
@@ -82,25 +57,34 @@ public class ExampleUnitTest {
     public void test_EmptyUsername(){
         when(view.getUserName()).thenReturn("");
         when(view.getUserPassword()).thenReturn("12345678");
-        Login_Presenter presenter = new Login_Presenter(view,database);
+        Login_Presenter presenter = new Login_Presenter(view,database,module);
         presenter.loginUser();
         verify(view).displayMessage("Empty Username!");
     }
 
     @Test
-    public void test_database(){
+    public void test_databaseFail(){
         when(view.getUserName()).thenReturn("student");
         when(view.getUserPassword()).thenReturn("password");
-        Login_Presenter presenter = new Login_Presenter(view,database_fail);
+        when(module.get_status()).thenReturn(3);
+        Login_Presenter presenter = new Login_Presenter(view,database,module);
         presenter.loginUser();
         verify(view).displayMessage("Error getting data");
     }
 
+
     @Test
     public void test_UsernameNotExist() {
+<<<<<<< Updated upstream
         when(view_WrongName.getUserName()).thenReturn("student_DNE");
         when(view_WrongName.getUserPassword()).thenReturn("12345678");
         Login_Presenter presenter = new Login_Presenter(view_WrongName,database_WrongName);
+=======
+        when(view.getUserName()).thenReturn("student_DNE");// the username do not exist in database
+        when(view.getUserPassword()).thenReturn("password");
+        when(module.get_status()).thenReturn(2);
+        Login_Presenter presenter = new Login_Presenter(view,database,module);
+>>>>>>> Stashed changes
         presenter.loginUser();
         verify(view).displayMessage("Username does not exist!");
     }
@@ -109,7 +93,8 @@ public class ExampleUnitTest {
     public void test_WrongPassword() {
         when(view.getUserName()).thenReturn("student");
         when(view.getUserPassword()).thenReturn("12345678"); // Actual password is password
-        Login_Presenter presenter = new Login_Presenter(view, database_wrongPassword);
+        Login_Presenter presenter = new Login_Presenter(view, database,module);
+        when(module.get_status()).thenReturn(1);
         presenter.loginUser();
         verify(view).displayMessage("Wrong Password!");
     }
