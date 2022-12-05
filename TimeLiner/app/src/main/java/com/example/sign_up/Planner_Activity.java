@@ -37,6 +37,9 @@ public class Planner_Activity extends AppCompatActivity {
         ArrayList<String> timetable_list = new ArrayList<>();
         // Get studentID from previous activity
         String studentID = getIntent().getStringExtra("studentID");
+        // Get selected year and session from previous activity
+        int selected_year = getIntent().getIntExtra("selected_year", 2022);
+        int selected_session = getIntent().getIntExtra("selected_session", 0);
         Button Goto_Wish = findViewById(R.id.back_wishlist);
         // Output the timetable list on the ListView
         ListView listView = findViewById(R.id.planner);
@@ -93,9 +96,9 @@ public class Planner_Activity extends AppCompatActivity {
 
                     //  Log.d("PlannerActivity:", "5. " + course_wanted.get(0).courseCode);
                     // Plan courses from user
-                    Planner p = new Planner(course_taken, course_wanted, courses, 0);
+                    Planner p = new Planner(course_taken, course_wanted, courses, selected_session);
                     // Get a timetable list from planner
-                    ArrayList<String> timetable_list = p.getTimetableList(2022);
+                    ArrayList<String> timetable_list = p.getTimetableList(selected_year);
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(Planner_Activity.this,
                             android.R.layout.simple_list_item_1, timetable_list);
                     listView.setAdapter(adapter);

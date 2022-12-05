@@ -23,6 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+// import Spinner
+import android.widget.AdapterView;
+import android.widget.Spinner;
+// import android.widget.AdapterView.OnItemSelectedListener;
+
+// import ArrayAL
+
 import java.util.ArrayList;
 
 public class CoursesWanted_Activity extends AppCompatActivity {
@@ -46,12 +53,69 @@ public class CoursesWanted_Activity extends AppCompatActivity {
         EditText Wish_EditText = findViewById(R.id.wishlist_edit_text);
         Button Goto_Planner = findViewById(R.id.generate_planner);
 
+        Spinner available_year = findViewById(R.id.available_year);
+        Spinner available_session = findViewById(R.id.available_session);
+
+        // Set the spinner for available year
+        ArrayList<String> year_list = new ArrayList<String>();
+        year_list.add("2022-2023");
+        year_list.add("2023-2024");
+        year_list.add("2024-2025");
+        year_list.add("2025-2026");
+        year_list.add("2026-2027");
+        
+        ArrayAdapter<String> year_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, year_list);
+        year_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        available_year.setAdapter(year_adapter);
+
+        // Set the spinner for available session
+        ArrayList<String> session_list = new ArrayList<String>();
+        session_list.add("Winter"); // 0
+        session_list.add("Summer"); // 1
+        session_list.add("Fall");   // 2
+
+        ArrayAdapter<String> session_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, session_list);
+        session_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        available_session.setAdapter(session_adapter);
+
+
+
         // Goto planner activity when button goto_planner is clicked
         Goto_Planner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Get the selected year and session
+                String selected_year = available_year.getSelectedItem().toString();
+                String selected_session = available_session.getSelectedItem().toString();
+
+                int session_index = session_list.indexOf(selected_session);
+                int year_index = year_list.indexOf(selected_year);
+                
+                // Convert the selected year and session to integer
+                if (selected_year.equals("2022-2023")) {
+                    year_index = 2022;
+                } else if (selected_year.equals("2023-2024")) {
+                    year_index = 2023;
+                } else if (selected_year.equals("2024-2025")) {
+                    year_index = 2024;
+                } else if (selected_year.equals("2025-2026")) {
+                    year_index = 2025;
+                } else if (selected_year.equals("2026-2027")) {
+                    year_index = 2026;
+                }
+
+                if (selected_session.equals("Winter")) {
+                    session_index = 0;
+                } else if (selected_session.equals("Summer")) {
+                    session_index = 1;
+                } else if (selected_session.equals("Fall")) {
+                    session_index = 2;
+                }
+
                 Intent intent = new Intent(CoursesWanted_Activity.this, Planner_Activity.class);
                 intent.putExtra("studentID", studentID);
+                intent.putExtra("selected_year", year_index);
+                intent.putExtra("selected_session", session_index);
                 startActivity(intent);
             }
         });
