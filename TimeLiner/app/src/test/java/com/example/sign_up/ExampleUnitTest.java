@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import android.content.Intent;
+
 import com.google.firebase.database.DatabaseReference;
 
 /**
@@ -26,20 +28,42 @@ public class ExampleUnitTest {
     @Mock
     DatabaseReference database;
 
+    @Mock
+    Intent intent;
+
     @Test
-    public void test_Password(){
-        when(view.getUserPassword()).thenReturn("123");
+    public void test_shortPassword(){
+        when(view.getUserPassword()).thenReturn("123456");
         Login_Presenter presenter = new Login_Presenter(view,database);
         presenter.loginUser();
         verify(view).displayMessage("Password too short! Should be more than 8 characters.");
     }
 
 
+    @Test
+    public void test_EmptyUsername(){
+        when(view.getUserName()).thenReturn("");
+        Login_Presenter presenter = new Login_Presenter(view,database);
+        presenter.loginUser();
+        verify(view).displayMessage("Empty Username!");
+    }
+
+
 //    @Test
-//    public void test_EmptyUsername(){
-//        when(view.getUserName()).thenReturn("");
+//    public void test_UsernameNotExist(){
+//        when(intent).thenReturn(null);
 //        Login_Presenter presenter = new Login_Presenter(view,database);
 //        presenter.loginUser();
-//        verify(view).displayMessage("Empty Username!");
+//        verify(view).displayMessage("User not found!");
 //    }
+
+
+    @Test
+    public void test_WrongPassword(){
+        when(intent.hasExtra("wrongPassword")).thenReturn(true);
+        Login_Presenter presenter = new Login_Presenter(view,database);
+        presenter.loginUser();
+        verify(view).displayMessage("wrongPassword");
+    }
+
 }
