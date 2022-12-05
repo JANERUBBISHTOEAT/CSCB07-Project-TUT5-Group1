@@ -34,12 +34,13 @@ import android.util.Log;
 public class Login_Activity extends AppCompatActivity implements Login_View {
 
     private Login_Presenter presenter;
+    private Login_Module module;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
+      
         // Receive the data from the previous page
         Intent intent = getIntent();
         String txt_username = intent.getStringExtra("username");
@@ -58,7 +59,8 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         // Goto Sign Up Page
         Button goto_signup_btn = findViewById(R.id.signup);
 
-        presenter = new Login_Presenter(this, database);
+        module = new Login_Module(database,0);
+        presenter = new Login_Presenter(this, database,module);
 
         // Goto Sign Up Page
         goto_signup_btn.setOnClickListener(new View.OnClickListener() {

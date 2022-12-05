@@ -23,6 +23,7 @@ Table of Contents
     - [Sprint 2 (Nov 23-Dec 2)](#sprint-2-nov-23-dec-2)
     - [No Sprint 3 (Cancelled as we finished all the tasks in Sprint 2)](#no-sprint-3-cancelled-as-we-finished-all-the-tasks-in-sprint-2)
 
+[Link to GitHub (Private Project)](https://github.com/JANERUBBISHTOEAT/CSCB07-Project-TUT5-Group1)
 
 ---
 

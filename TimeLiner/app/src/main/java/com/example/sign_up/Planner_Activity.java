@@ -70,7 +70,11 @@ public class Planner_Activity extends AppCompatActivity {
                     if (snapshot.child("DATABASE").child("STUDENTS").child(studentID).child("course_taken").exists()) {
                         for (DataSnapshot ds : snapshot.child("DATABASE").child("STUDENTS").child(studentID).child("course_taken")
                                 .getChildren()) {
-                            course_taken.add(ds.getValue(Course.class));
+                                    for (Course course : courses) {
+                                        if (course.getCourseCode().equals(ds.getValue(String.class))) {
+                                            course_taken.add(course);
+                                        }
+                                    }
                         }
                     }
 
