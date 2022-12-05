@@ -40,19 +40,31 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
+        // Receive the data from the previous page
+        Intent intent = getIntent();
+        String txt_username = intent.getStringExtra("username");
+        String txt_password = intent.getStringExtra("password");
+
+        // Login Part
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         Button login_btn = findViewById(R.id.Login_Btn);
-        Button goto_signup_btn = findViewById(R.id.signup);
         EditText username = findViewById(R.id.Username_Login);
         EditText password = findViewById(R.id.Password_Login);
 
-        presenter = new Login_Presenter(this);
+        // Fill the username and password
+        username.setText(txt_username);
+        password.setText(txt_password);
+
+        // Goto Sign Up Page
+        Button goto_signup_btn = findViewById(R.id.signup);
+
+        presenter = new Login_Presenter(this, database);
 
         // Goto Sign Up Page
         goto_signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login_Activity.this, Signup_Activity.class));
+                goToPage(new Intent(Login_Activity.this, Signup_Activity.class));
             }
         });
 
@@ -60,91 +72,76 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String txt_username = username.getText().toString();
-                String txt_password = password.getText().toString();
-
-                presenter.loginUser(database, txt_username, txt_password);
+                presenter.loginUser();
             }
         });
     }
 
     @Override
-    public void displayValidName() {
-        Toast.makeText(Login_Activity.this, "Empty Username!",
-                Toast.LENGTH_SHORT).show();
+    public void goToPage(Intent intent) {
+        startActivity(intent);
+        finish();
     }
 
     @Override
-    public void displayValidPassword() {
-        Toast.makeText(Login_Activity.this,
-                "Password too short! Should be more than 8 characters.",
-                Toast.LENGTH_SHORT).show();
+    public String getUserName() {
+        EditText username = findViewById(R.id.Username_Login);
+        return username.getText().toString();
     }
 
     @Override
-    public void displayLogin(DatabaseReference database, String txt_username,
-                             String pass_md5, String pass_md5_salt) {
+    public String getUserPassword() {
+        EditText password = findViewById(R.id.Password_Login);
+        return password.getText().toString();
+    }
 
-        database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+    @Override
+    public void displayMessage(String message) {
+        Toast.makeText(Login_Activity.this, message, Toast.LENGTH_SHORT).show();
+    }
 
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> snapshot) {
+    @Override
+    public Intent displayLogin(Task<DataSnapshot> snapshot, String username,
+            String pass_md5, String pass_md5_salt) {
 
-                // Get the data snapshot
-                DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
-                DataSnapshot admins = snapshot.getResult().child("DATABASE").child("ADMINS");
+        // Get the data snapshot
+        DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
+        DataSnapshot admins = snapshot.getResult().child("DATABASE").child("ADMINS");
 
-                if (!snapshot.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", snapshot.getException());
-                    Toast.makeText(Login_Activity.this, "Error getting data",
-                            Toast.LENGTH_SHORT).show();
-                } else if (admins.hasChild(txt_username)) { // if the user is an administrator
+        if (admins.hasChild(username)) { // if the user is an administrator
 
-                    // Get the correct password from the database
-                    String pass_web = admins.child(txt_username).child("pass_hash").getValue().toString();
-                    String pass_salt_web = admins.child(txt_username).child("salt_hash").getValue().toString();
+            // Get the correct password from the database
+            String pass_web = admins.child(username).child("pass_hash").getValue().toString();
+            String pass_salt_web = admins.child(username).child("salt_hash").getValue().toString();
 
-                    // check if the password is correct.
-                    // If it is, jump to the admin_page. If not, toast a message.
-                    if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
-                        Log.i("Login", "Login Successful");
-                        Toast.makeText(Login_Activity.this, "Login Successful!",
-                                Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Login_Activity.this, AdminHome_Activity.class));
-                        finish();
-                    } else {
-                        Log.e("Login", "Password Wrong!");
-                        Toast.makeText(Login_Activity.this, "Wrong Password!",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                } else if (students.hasChild(txt_username)) {   // if the user is a student
+            Intent intent = new Intent(Login_Activity.this, AdminHome_Activity.class);
 
-                    // Get the correct password from the database
-                    String pass_web = students.child(txt_username).child("pass_hash").getValue().toString();
-                    String pass_salt_web = students.child(txt_username).child("salt_hash").getValue().toString();
-
-                    // check if the password is correct.
-                    // If it is, jump to the admin_page. If not, toast a message.
-                    if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
-                        Log.i("Login", "Login Successful");
-                        Toast.makeText(Login_Activity.this, "Login Successful!",
-                                Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
-                        intent.putExtra("studentID", txt_username);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Log.e("Login", "Password Wrong!");
-                        Toast.makeText(Login_Activity.this, "Wrong Password!",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                } else { // If the user's name is not found in the database, toast a message.
-                    Log.e("firebase", "User not found");
-                    Toast.makeText(Login_Activity.this, "User not found!",
-                            Toast.LENGTH_SHORT).show();
-                }
+            // check if the password is correct.
+            if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
+                return intent;
+            } else {
+                intent.putExtra("wrongPassword", true);
             }
-        });
+            return intent;
+        } else if (students.hasChild(username)) { // if the user is a student
+
+            // Get the correct password from the database
+            String pass_web = students.child(username).child("pass_hash").getValue().toString();
+            String pass_salt_web = students.child(username).child("salt_hash").getValue().toString();
+
+            Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
+            intent.putExtra("studentID", username);
+
+            // check if the password is correct.
+            if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
+                return intent;
+            } else {
+                intent.putExtra("wrongPassword", true);
+            }
+            return intent;
+        }
+        // If the user's name is not found in the database, toast a message.
+        return null;
     }
 
     @Override
