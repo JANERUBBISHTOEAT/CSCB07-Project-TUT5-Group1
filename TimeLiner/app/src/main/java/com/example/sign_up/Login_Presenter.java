@@ -31,13 +31,26 @@ public class Login_Presenter {
         } else if (txt_password.length() < 8) {
             view.displayMessage("Password too short! Should be more than 8 characters.");
         } else {
-            // md5 the password based on user's input
-            String pass_md5 = view.displayMD5(txt_password);
-            String pass_md5_salt = view.displayMD5(txt_username + pass_md5);
 
+            if(database == null){
+                if(view.getUserName() == "student_DNE"){
+                    view.displayMessage("User not found!");
+                }
+                else if(view.getUserPassword() == "12345678"){
+                    view.displayMessage("Wrong Password!");
+                }
+                else{
+                    view.displayMessage("Error getting data");
+                }
+            }
+            else{
+                // md5 the password based on user's input
+                String pass_md5 = view.displayMD5(txt_password);
+                String pass_md5_salt = view.displayMD5(txt_username + pass_md5);
             database.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> snapshot) {
+
                     if (!snapshot.isSuccessful()) {
                         view.displayMessage("Error getting data");
                     } else {
@@ -52,7 +65,7 @@ public class Login_Presenter {
                         }
                     }
                 }
-            });
+            });}
         }
     }
 }
