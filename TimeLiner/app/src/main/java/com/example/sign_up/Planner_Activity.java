@@ -38,7 +38,8 @@ public class Planner_Activity extends AppCompatActivity {
         // Get studentID from previous activity
         String studentID = getIntent().getStringExtra("studentID");
         // Get selected year and session from previous activity
-        int selected_year = getIntent().getIntExtra("selected_year", 2022);
+        int selected_year = getIntent().getIntExtra("s" +
+                "elected_year", 2022);
         int selected_session = getIntent().getIntExtra("selected_session", 0);
         Button Goto_Wish = findViewById(R.id.back_wishlist);
         // Output the timetable list on the ListView
