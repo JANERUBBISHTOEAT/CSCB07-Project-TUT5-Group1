@@ -48,6 +48,7 @@ Table of Contents
 - Implemented the `SignupActivity` activity for the user (Students and Admins) to register
 - JUnit tests for `LoginActivity`
 - All Front-end UI design in Sprint 2 (mainly for `CourseTaken`, `CourseWanted`,  `AdminEdit`, `AdminHome`)
+- Helped with refactoring the `LoginActivity` for the ease of testing
 
 ### Yibai Wang
 
@@ -62,8 +63,10 @@ Table of Contents
 - Designed the Database for Users (Students and Admins)
 - Proposed the idea of using `md5` to encrypt the password for security, and using `md5 with salt` to avoid coincidence of the same `md5` value for different passwords
 - Designed and implemented the Java `Course` class which is widely used in the project for basic processing of the course information, and storing or retrieving data from the database
+- According to the `Firebase` asynchronous nature, designed and implemented the `getFromDatabase()` method to retrieve data from the database with maximum ease of use, and provided a sample usage (callback function) for the user to process the data on GitHub
 - Implemented the `AddCourse` activity for Admins to add a new course to the database
 - Solved all the merge conflicts in the project
+- Found and fixed all the bugs in the project whenever a merge is done wrongly
 
 ---
 
