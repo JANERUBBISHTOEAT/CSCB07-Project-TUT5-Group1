@@ -101,4 +101,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/wish_course_view"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/available_year"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/generate_planner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wish_course_view"
+        app:layout_constraintVertical_bias="0.722" />
+
+    <Spinner
+        android:id="@+id/available_session"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/generate_planner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/available_year"
+        app:layout_constraintTop_toBottomOf="@+id/wish_course_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

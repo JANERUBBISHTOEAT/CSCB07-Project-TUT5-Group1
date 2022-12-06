@@ -17,6 +17,8 @@ public interface Login_View {
 
     void displayMessage(String message); // Handle with error to warn the user
 
+    void toastMessage(String message); // Toast the error
+
     Intent displayLogin(Task<DataSnapshot> snapshot, String txt_username,
                       String pass_md5, String pass_md5_salt); // Login the user
 

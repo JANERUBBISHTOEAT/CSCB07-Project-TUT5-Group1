@@ -34,12 +34,13 @@ import android.util.Log;
 public class Login_Activity extends AppCompatActivity implements Login_View {
 
     private Login_Presenter presenter;
+    private Login_Module module;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
+      
         // Receive the data from the previous page
         Intent intent = getIntent();
         String txt_username = intent.getStringExtra("username");
@@ -58,7 +59,8 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         // Goto Sign Up Page
         Button goto_signup_btn = findViewById(R.id.signup);
 
-        presenter = new Login_Presenter(this, database);
+        module = new Login_Module(database,0);
+        presenter = new Login_Presenter(this, database,module);
 
         // Goto Sign Up Page
         goto_signup_btn.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +99,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
 
     @Override
     public void displayMessage(String message) {
-        Toast.makeText(Login_Activity.this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Login_Activity.this, message, Toast.LENGTH_SHORT);
     }
 
     @Override
@@ -108,13 +110,12 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
         DataSnapshot admins = snapshot.getResult().child("DATABASE").child("ADMINS");
 
+        Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
         if (admins.hasChild(username)) { // if the user is an administrator
 
             // Get the correct password from the database
             String pass_web = admins.child(username).child("pass_hash").getValue().toString();
             String pass_salt_web = admins.child(username).child("salt_hash").getValue().toString();
-
-            Intent intent = new Intent(Login_Activity.this, AdminHome_Activity.class);
 
             // check if the password is correct.
             if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
@@ -129,7 +130,6 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
             String pass_web = students.child(username).child("pass_hash").getValue().toString();
             String pass_salt_web = students.child(username).child("salt_hash").getValue().toString();
 
-            Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
             intent.putExtra("studentID", username);
 
             // check if the password is correct.
@@ -167,4 +167,10 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         }
         return "";
     }
+    
+    @Override
+    public void toastMessage(String message) {
+        Toast.makeText(Login_Activity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
 }
