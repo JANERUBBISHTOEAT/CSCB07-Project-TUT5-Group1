@@ -110,13 +110,13 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
         DataSnapshot students = snapshot.getResult().child("DATABASE").child("STUDENTS");
         DataSnapshot admins = snapshot.getResult().child("DATABASE").child("ADMINS");
 
-        Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
         if (admins.hasChild(username)) { // if the user is an administrator
 
             // Get the correct password from the database
             String pass_web = admins.child(username).child("pass_hash").getValue().toString();
             String pass_salt_web = admins.child(username).child("salt_hash").getValue().toString();
 
+            Intent intent = new Intent(Login_Activity.this, AdminHome_Activity.class);
             // check if the password is correct.
             if (pass_web.equals(pass_md5) && pass_salt_web.equals(pass_md5_salt)) {
                 return intent;
@@ -130,6 +130,7 @@ public class Login_Activity extends AppCompatActivity implements Login_View {
             String pass_web = students.child(username).child("pass_hash").getValue().toString();
             String pass_salt_web = students.child(username).child("salt_hash").getValue().toString();
 
+            Intent intent = new Intent(Login_Activity.this, CoursesTaken_Activity.class);
             intent.putExtra("studentID", username);
 
             // check if the password is correct.
